@@ -2,7 +2,7 @@ angular
 	.module('firettt')
 	.controller("MainController", mainController)
 
-	mainController.$inject = ['$firebaseObject']
+	mainController.$inject = ['$firebaseObject'];
 
 
 	function mainController($firebaseObject) {
@@ -11,43 +11,36 @@ angular
 		self.p1move=false;
 		self.p2move=false;
 		self.decidePlayerMove=decidePlayerMove;
-		self.ttt=whatever();
-
-
+		self.what=whatever();
 
 		self.game={gridList: ["","","","","","","","",""]}
 
-
-
 		function whatever() {
 			var ref = new Firebase("https://jeffersonttt.firebaseio.com/");
-			var whatever = $firebaseObject(ref);
-			return whatever;
-
+			var what = $firebaseObject(ref);
+			return what;
 		}
-
-
-
-
-
-
-
-
-
-
-
-
 
 		function decidePlayerMove($index) {
 			if (self.counter % 2 !== 0) {
 				self.p1move = !self.p1move;
 				self.counter++;
+				self.what.value="test odd";
+				self.what.$save;
 				switchBoxValue($index);
+
 			} else if (self.counter % 2 == 0) {
 				self.p2move = !self.p2move;
 				self.counter++;
+				self.what.value="test even";
+				self.what.$save;
 				switchBoxValue($index);
 			}
+		// self.whatever.$add(
+		// 	{value: "empty"}
+		// 	);
+		// self.whatever.$save();
+
 		}
 
 		function switchBoxValue($index) {
@@ -68,3 +61,4 @@ angular
 
 
 }
+

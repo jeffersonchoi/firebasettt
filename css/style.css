@@ -4,7 +4,7 @@
 	margin: 0 auto;
 }
 
-.grids{
+.grids {
 	height: 100px;
 	width: 30%;
 	border: solid 1px black;
@@ -12,3 +12,10 @@
 	margin: 0 auto;
 }
 
+.x {
+	background-color: red;
+}
+
+.o {
+	background-color: blue;
+}
