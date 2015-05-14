@@ -1,0 +1,14 @@
+#gridContainer {
+	height: 300px;
+	width: 300px;
+	margin: 0 auto;
+}
+
+.grids{
+	height: 100px;
+	width: 30%;
+	border: solid 1px black;
+	float: left;
+	margin: 0 auto;
+}
+
