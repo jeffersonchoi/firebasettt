@@ -14,28 +14,28 @@
 
         <header>
             <div class= "playerName">
-                <h1 class= "player1" ng-bind="mainCtrl.playerOne"> </h1> 
+                <h1 class= "player1" ng-bind="mainCtrl.whatever.playerOne"> </h1> 
                     VS 
-                <h1 class= "player2" ng-bind="mainCtrl.playerTwo"> </h1>
+                <h1 class= "player2" ng-bind="mainCtrl.whatever.playerTwo"> </h1>
             </div>
 
             <div class= "playerScore">
-                <h2 class= "player1score" ng-bind="mainCtrl.playerOneScore"> </h1> 
+                <h2 class= "player1score" ng-bind="mainCtrl.whatever.playerOneScore"> </h1> 
                     VS 
-                <h2 class= "player2score" ng-bind="mainCtrl.playerTwoScore"> </h1>
+                <h2 class= "player2score" ng-bind="mainCtrl.whatever.playerTwoScore"> </h1>
             </div>
 
             <div class= "playResult">
-                <h2 class="playerResult" ng-bind="mainCtrl.winner" ng-show="mainCtrl.showWinner"> </h2>
+                <h2 class="playerResult" ng-bind="mainCtrl.whatever.winner" ng-show="mainCtrl.whatever.showWinner"> </h2>
             </div>
 
             <div class= "playerNameInput">
-                <input type="textbox" ng-model="mainCtrl.playerOne" 
-                ng-show="mainCtrl.showName"  placeholder="Please type yout name">
-                <input type="textbox" ng-model="mainCtrl.playerTwo" 
-                ng-show="mainCtrl.showName"  placeholder="Please type yout name">
+                <input type="textbox" ng-model="mainCtrl.whatever.playerOne" 
+                ng-show="mainCtrl.whatever.showName"  placeholder="Please type yout name">
+                <input type="textbox" ng-model="mainCtrl.whatever.playerTwo" 
+                ng-show="mainCtrl.whatever.showName"  placeholder="Please type yout name">
                 <input type="button" value="Confirm" ng-click="mainCtrl.nameChange()" 
-                    ng-show="mainCtrl.showName">
+                    ng-show="mainCtrl.whatever.showName">
             </div>
         </header>
 

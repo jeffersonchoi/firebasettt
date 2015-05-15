@@ -10,15 +10,10 @@ angular
         // self.counter = 1;
         self.decidePlayerMove = decidePlayerMove;
         self.nameChange = nameChange;
-        self.playerOne = "Player 1";
-        self.playerTwo = "Player 2";
+
         self.p1 = "x";
 		self.p2 = "o";
-        self.showName = true;
-        self.playerOneScore = 0;
-        self.playerTwoScore = 0;
-        self.winner = "winner";
-        self.showWinner = false;
+
         self.getWinner = getWinner;
         self.clearButton = clearButton;
         
@@ -28,12 +23,18 @@ angular
         function whatever() {
             var ref = new Firebase("https://jeffersonttt.firebaseio.com/");
             var what = $firebaseObject(ref);
-            return what;
-            
-                
+            return what;   
         }
         self.whatever.$loaded(function() {
+        	self.whatever.playerOne = "Player 1";
+        	self.whatever.playerTwo = "Player 2";
+        	self.whatever.playerOneScore = 0;
+        	self.whatever.playerTwoScore = 0;
+        	self.whatever.winner = "winner";
         	self.whatever.counter = 1;
+        	self.whatever.showName = true;
+        	self.whatever.showWinner = false;
+
             self.whatever.gridList = [
             	{
                     id: 0, 
@@ -69,7 +70,8 @@ angular
 
         //Function to show/hide the playerName/playerScore class
         function nameChange() {
-            self.showName = !self.showName;
+            self.whatever.showName = !self.whatever.showName;
+            self.whatever.$save();
         }
 
         // /*
@@ -79,12 +81,12 @@ angular
         // */
         function decidePlayerMove($index) {      
 
-        	if (self.winner !== "winner") {
+        	if (self.whatever.winner !== "winner") {
         		return;
         	}
 
             if (
-                self.whatever.counter % 2 !== 0  
+                self.whatever.counter % 2 == 1
                 && self.whatever.gridList[$index].value == "" 
             ) {
 
@@ -125,24 +127,25 @@ angular
 					){ 	
 						if (t == self.p1) {
 							console.log("p1")
-							self.playerOneScore++;
-							self.winner = self.playerOne + " wins";
+							self.whatever.playerOneScore++;
+							self.whatever.winner = self.whatever.playerOne + " wins";
 						} else if (t == self.p2) {
 							console.log("p2")
-							self.playerTwoScore++;
-							self.winner = self.playerTwo + " wins";		
+							self.whatever.playerTwoScore++;
+							self.whatever.winner = self.whatever.playerTwo + " wins";		
 						}
 						self.whatever.$save();
-						self.showWinner = true;
+						self.whatever.showWinner = true;
 					} 
 				//deciding tie game
 					else if (self.whatever.counter == 9) {	
 						console.log("tie")
-						self.winner = "It is a tie!";
-						self.showWinner=true;
+						self.whatever.winner = "It is a tie!";
+						self.whatever.showWinner=true;
 				}
 
 			}
+			self.whatever.$save();
 		}
 
 
@@ -178,8 +181,8 @@ angular
                     value: "" 
                 }
              ];
-            self.winner = "winner";
-        	self.showWinner = false;
+            self.whatever.winner = "winner";
+        	self.whatever.showWinner = false;
             self.whatever.$save();
 		}
 
