@@ -31,11 +31,17 @@
 
             <div class= "playerNameInput">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerOne" 
-                ng-show="mainCtrl.whatever.showName"  placeholder="Please type yout name">
+                ng-show="mainCtrl.whatever.showPlayerOneName"  placeholder="Please type yout name">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerTwo" 
-                ng-show="mainCtrl.whatever.showName"  placeholder="Please type yout name">
-                <input type="button" value="Confirm" ng-click="mainCtrl.nameChange()" 
-                    ng-show="mainCtrl.whatever.showName">
+                ng-show="mainCtrl.whatever.showPlayerTwoName"  placeholder="Please type yout name">
+                <input type="button" value="Player One Confirm Name" ng-click="mainCtrl.playerOneNameChange()"
+                ng-show="mainCtrl.whatever.showPlayerOneName">
+                <input type="button" value="Player Two Confirm Name" ng-click="mainCtrl.playerTwoNameChange()"
+                ng-show="mainCtrl.whatever.showPlayerTwoName" >
+
+
+<!--                 <input type="button" value="Confirm" ng-click="mainCtrl.nameChange()" 
+                    ng-show="mainCtrl.whatever.showName"> -->
             </div>
         </header>
 

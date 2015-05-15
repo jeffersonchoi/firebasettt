@@ -7,17 +7,23 @@ angular
     function mainController($firebaseObject) {
 
         var self = this;
-        // self.counter = 1;
+
         self.decidePlayerMove = decidePlayerMove;
-        self.nameChange = nameChange;
 
         self.p1 = "x";
 		self.p2 = "o";
-
+		// self.playerOneNameChange = playerOneNameChange;
+		// self.playerTwoNameChange = playerTwoNameChange;
+		// self.playerOneHere = playerOneHere;
+		// self.playerTwoHere = playerTwoHere;
         self.getWinner = getWinner;
         self.clearButton = clearButton;
-        
+        self.playerList = "Player 1", "Player 2";
+        self.playerOneNameChange = playerOneNameChange;
+        self.playerTwoNameChange = playerTwoNameChange;
         self.whatever = whatever();
+
+
 
          //Function to connect with firebase
         function whatever() {
@@ -28,11 +34,14 @@ angular
         self.whatever.$loaded(function() {
         	self.whatever.playerOne = "Player 1";
         	self.whatever.playerTwo = "Player 2";
+        	// self.whatever.playerOneExist = false;
+        	// self.whatever.playerTwoExist = false;
         	self.whatever.playerOneScore = 0;
         	self.whatever.playerTwoScore = 0;
         	self.whatever.winner = "winner";
         	self.whatever.counter = 1;
-        	self.whatever.showName = true;
+        	self.whatever.showPlayerOneName = true;
+        	self.whatever.showPlayerTwoName = true;
         	self.whatever.showWinner = false;
 
             self.whatever.gridList = [
@@ -69,10 +78,23 @@ angular
             });
 
         //Function to show/hide the playerName/playerScore class
-        function nameChange() {
-            self.whatever.showName = !self.whatever.showName;
-            self.whatever.$save();
-        }
+        // function playerOneNameChange() {
+        //     s
+            
+        //     self.whatever.$save();
+        // }
+
+
+        // function playerOneHere() {
+        // 	self.whatever.playerOneExist = !self.whatever.playerOneExist;
+        // 	self.whatever.showPlayerOneName = !self.whatever.showPlayerOneName
+        // 	self.whatever.$save();
+        // }
+        // function playerTwoHere() {
+        // 	self.whatever.playerTwoExist = !self.whatever.playerTwoExist;
+        // 	 self.whatever.showPlayerTwoName = !self.whatever.showPlayerTwoName
+        // 	self.whatever.$save();
+        // }
 
         // /*
         // Function to decide player turns
@@ -112,36 +134,36 @@ angular
 
         function getWinner() {
         	var tokens = [self.p1, self.p2];
-				for (var i = 0; i < tokens.length; i++) {
+			for (var i = 0; i < tokens.length; i++) {
 				var t = tokens[i];
 
-					if (
-					((self.whatever.gridList[0].value == t ) && (self.whatever.gridList[1].value == t ) && (self.whatever.gridList[2].value == t )) || 
-				    ((self.whatever.gridList[3].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[5].value == t )) ||
-			        ((self.whatever.gridList[6].value == t ) && (self.whatever.gridList[7].value == t ) && (self.whatever.gridList[8].value == t )) ||
-		 		    ((self.whatever.gridList[0].value == t ) && (self.whatever.gridList[3].value == t ) && (self.whatever.gridList[6].value == t )) ||
-		 	  	    ((self.whatever.gridList[1].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[7].value == t )) ||
-				    ((self.whatever.gridList[2].value == t ) && (self.whatever.gridList[5].value == t ) && (self.whatever.gridList[8].value == t )) ||
-				    ((self.whatever.gridList[0].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[8].value == t )) ||
-				    ((self.whatever.gridList[2].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[6].value == t )) 
-					){ 	
-						if (t == self.p1) {
-							console.log("p1")
-							self.whatever.playerOneScore++;
-							self.whatever.winner = self.whatever.playerOne + " wins";
-						} else if (t == self.p2) {
-							console.log("p2")
-							self.whatever.playerTwoScore++;
-							self.whatever.winner = self.whatever.playerTwo + " wins";		
-						}
-						self.whatever.$save();
-						self.whatever.showWinner = true;
-					} 
-				//deciding tie game
-					else if (self.whatever.counter == 9) {	
-						console.log("tie")
-						self.whatever.winner = "It is a tie!";
-						self.whatever.showWinner=true;
+				if (
+				((self.whatever.gridList[0].value == t ) && (self.whatever.gridList[1].value == t ) && (self.whatever.gridList[2].value == t )) || 
+			    ((self.whatever.gridList[3].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[5].value == t )) ||
+		        ((self.whatever.gridList[6].value == t ) && (self.whatever.gridList[7].value == t ) && (self.whatever.gridList[8].value == t )) ||
+	 		    ((self.whatever.gridList[0].value == t ) && (self.whatever.gridList[3].value == t ) && (self.whatever.gridList[6].value == t )) ||
+	 	  	    ((self.whatever.gridList[1].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[7].value == t )) ||
+			    ((self.whatever.gridList[2].value == t ) && (self.whatever.gridList[5].value == t ) && (self.whatever.gridList[8].value == t )) ||
+			    ((self.whatever.gridList[0].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[8].value == t )) ||
+			    ((self.whatever.gridList[2].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[6].value == t )) 
+				){ 	
+					if (t == self.p1) {
+						console.log("p1")
+						self.whatever.playerOneScore++;
+						self.whatever.winner = self.whatever.playerOne + " wins";
+					} else if (t == self.p2) {
+						console.log("p2")
+						self.whatever.playerTwoScore++;
+						self.whatever.winner = self.whatever.playerTwo + " wins";		
+					}
+					self.whatever.$save();
+					self.whatever.showWinner = true;
+				} 
+			//deciding tie game
+				else if (self.whatever.counter == 9) {	
+					console.log("tie")
+					self.whatever.winner = "It is a tie!";
+					self.whatever.showWinner=true;
 				}
 
 			}
@@ -185,6 +207,17 @@ angular
         	self.whatever.showWinner = false;
             self.whatever.$save();
 		}
+
+		function playerOneNameChange() {
+           
+            self.whatever.showPlayerOneName = !self.whatever.showPlayerOneName;
+            self.whatever.$save();
+        }
+        function playerTwoNameChange() {
+           
+            self.whatever.showPlayerTwoName = !self.whatever.showPlayerTwoName;
+            self.whatever.$save();
+        }
 
 
 
