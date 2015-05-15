@@ -10,8 +10,7 @@ angular
 
         self.decidePlayerMove = decidePlayerMove;
 
-        self.p1 = "x"
-       
+        self.p1 = "x";
 		self.p2 = "o";
 		// self.playerOneNameChange = playerOneNameChange;
 		// self.playerTwoNameChange = playerTwoNameChange;
@@ -33,6 +32,7 @@ angular
             var what = $firebaseObject(ref);
             return what;   
         }
+        
         self.whatever.$loaded(function() {
         	self.whatever.playerOne = "Player 1";
         	self.whatever.playerTwo = "Player 2";
