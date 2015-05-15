@@ -20,6 +20,7 @@ angular
         self.winner = "winner";
         self.showWinner = false;
         self.getWinner = getWinner;
+        self.clearButton = clearButton;
         
         self.whatever = whatever();
 
@@ -76,10 +77,15 @@ angular
         // Odd number to determine Player 1 's move = "o"
         // Even number to determine Player 2 's move = "x"
         // */
-        function decidePlayerMove($index) {                 
+        function decidePlayerMove($index) {      
+
+        	if (self.winner !== "winner") {
+        		return;
+        	}
+
             if (
                 self.whatever.counter % 2 !== 0  
-                && self.whatever.gridList[$index].value == ""
+                && self.whatever.gridList[$index].value == "" 
             ) {
 
 	            console.log(self.whatever.gridList[$index].id)
@@ -101,8 +107,6 @@ angular
             self.whatever.$save();
 
         }
-
-
 
         function getWinner() {
         	var tokens = [self.p1, self.p2];
@@ -131,19 +135,53 @@ angular
 						self.whatever.$save();
 						self.showWinner = true;
 					} 
-
 				//deciding tie game
-				else if (self.whatever.counter == 9) {	
-					console.log("tie")
-					self.winner = "It is a tie!";
-					self.showWinner=true;
+					else if (self.whatever.counter == 9) {	
+						console.log("tie")
+						self.winner = "It is a tie!";
+						self.showWinner=true;
 				}
 
 			}
 		}
 
 
-
+		function clearButton() {
+			self.whatever.counter = 1;
+            self.whatever.gridList = [
+            	{
+                    id: 0, 
+                    value: ""
+                } , {
+                    id: 1, 
+                    value: ""
+                } , {
+                    id: 2, 
+                    value: ""
+                } , {
+                    id: 3, 
+                    value: ""
+                } , {
+                    id: 4, 
+                    value: ""
+                } , {
+                    id: 5, 
+                    value: ""
+                } , {
+                    id: 6, 
+                    value: ""
+                } , {
+                    id: 7, 
+                    value: ""
+                } , {
+                    id: 8, 
+                    value: "" 
+                }
+             ];
+            self.winner = "winner";
+        	self.showWinner = false;
+            self.whatever.$save();
+		}
 
 
 
