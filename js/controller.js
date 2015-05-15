@@ -16,75 +16,91 @@ angular
 		// self.playerTwoNameChange = playerTwoNameChange;
 		self.playerOneHere = false;
 		self.playerTwoHere = false;
+
         self.getWinner = getWinner;
         self.clearButton = clearButton;
-        self.playerList = "Player 1", "Player 2";
+        // self.playerList = "Player 1", "Player 2";
         self.playerOneNameChange = playerOneNameChange;
         self.playerTwoNameChange = playerTwoNameChange;
         self.newGameButton = newGameButton;
         self.whatever = whatever();
+        self.whatsoever = whatsoever();
 
 
+        function whatsoever() {
+            var ref = new Firebase("https://jeffersonttt.firebaseio.com/game2");
+            var whatso = $firebaseObject(ref);
+            return whatso;   
+        }
 
-         //Function to connect with firebase
+        	self.whatsoever.$loaded( function() {
+        		self.whatsoever.playerOneHere = false;
+        		self.whatsoever.playerTwoHere = false;
+        		self.whatsoever.$save();
+        	})
+
+        	
+  // //        //Function to connect with firebase
         function whatever() {
-            var ref = new Firebase("https://jeffersonttt.firebaseio.com/");
+            var ref = new Firebase("https://jeffersonttt.firebaseio.com/game");
             var what = $firebaseObject(ref);
             return what;   
         }
         
-        self.whatever.$loaded(function() {
-        	self.whatever.playerOne = "Player 1";
-        	self.whatever.playerTwo = "Player 2";
-        	// self.whatever.playerOneExist = false;
-        	// self.whatever.playerTwoExist = false;
-        	self.whatever.playerOneScore = 0;
-        	self.whatever.playerTwoScore = 0;
-        	self.whatever.winner = "winner";
-        	self.whatever.counter = 1;
-        	self.whatever.showPlayerOneName = true;
-        	self.whatever.showPlayerTwoName = true;
-        	self.whatever.showWinner = false;
+        if (self.whatsoever.playerOneHere == false && self.whatsoever.playerTwoHere == false){
+	        self.whatever.$loaded(function() {
+	        	self.whatever.playerOne = "Player 1";
+	        	self.whatever.playerTwo = "Player 2";
+	        	// self.whatever.playerOneExist = false;
+	        	// self.whatever.playerTwoExist = false;
+	        	self.whatever.playerOneScore = 0;
+	        	self.whatever.playerTwoScore = 0;
+	        	self.whatever.winner = "winner";
+	        	self.whatever.counter = 1;
+	        	self.whatever.showPlayerOneName = true;
+	        	self.whatever.showPlayerTwoName = true;
+	        	self.whatever.showWinner = false;
 
-            self.whatever.gridList = [
-            	{
-                    id: "box0", 
-                    value: ""
-                } , {
-                    id: "box1", 
-                    value: ""
-                } , {
-                    id: "box2", 
-                    value: ""
-                } , {
-                    id: "box3", 
-                    value: ""
-                } , {
-                    id: "box4", 
-                    value: ""
-                } , {
-                    id: "box5", 
-                    value: ""
-                } , {
-                    id: "box6", 
-                    value: ""
-                } , {
-                    id: "box7", 
-                    value: ""
-                } , {
-                    id: "box8", 
-                    value: "" 
-                }
-                ];
-                self.whatever.$save();
-            });
 
-        //Function to show/hide the playerName/playerScore class
-        // function playerOneNameChange() {
-        //     s
-            
-        //     self.whatever.$save();
-        // }
+	        	self.whatever.playerTurn = "Let's start!";
+
+	        	// if (self.whatever.counter % 2 == 1) {
+	        	// 	self.whatever.playerTurn = self.whatever.playerOne + " 's Turn!";
+	        	// } else self.whatever.playerTurn = self.whatever.playerTwo + " 's Turn!";
+
+	            self.whatever.gridList = [
+	            	{
+	                    id: "box0", 
+	                    value: ""
+	                } , {
+	                    id: "box1", 
+	                    value: ""
+	                } , {
+	                    id: "box2", 
+	                    value: ""
+	                } , {
+	                    id: "box3", 
+	                    value: ""
+	                } , {
+	                    id: "box4", 
+	                    value: ""
+	                } , {
+	                    id: "box5", 
+	                    value: ""
+	                } , {
+	                    id: "box6", 
+	                    value: ""
+	                } , {
+	                    id: "box7", 
+	                    value: ""
+	                } , {
+	                    id: "box8", 
+	                    value: "" 
+	                }
+	                ];
+	                self.whatever.$save();
+	            });
+		}
 
 
         // function playerOneHere() {
@@ -210,6 +226,8 @@ angular
             self.whatever.winner = "winner";
         	self.whatever.showWinner = false;
             self.whatever.$save();
+            self.whatsoever.playerOneHere = false;
+        	self.whatsoever.playerTwoHere = false;
 		}
 
 		function newGameButton() {

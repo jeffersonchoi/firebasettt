@@ -20,9 +20,9 @@
             </div>
 
             <div class= "playerScore">
-                <h2 class= "player1score" ng-bind="mainCtrl.whatever.playerOneScore"> </h1> 
+                <h2 class= "player1score" ng-bind="mainCtrl.whatever.playerOneScore"> </h2> 
                     VS 
-                <h2 class= "player2score" ng-bind="mainCtrl.whatever.playerTwoScore"> </h1>
+                <h2 class= "player2score" ng-bind="mainCtrl.whatever.playerTwoScore"> </h2>
             </div>
 
             <div class= "playerResult">
@@ -32,11 +32,11 @@
             <div class= "playerNameInput">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerOne" 
                 ng-show="mainCtrl.whatever.showPlayerOneName"  placeholder="Please type yout name">
-                <input type="button" value="Player One Confirm Name" ng-click="mainCtrl.playerOneNameChange(); mainCtrl.playerOneHere=true"
+                <input type="button" value="Player One Confirm Name" ng-click="mainCtrl.playerOneNameChange(); mainCtrl.playerOneHere=true; mainCtrl.whatsoever.playerOneInRoom=true"
                 ng-show="mainCtrl.whatever.showPlayerOneName">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerTwo" 
                 ng-show="mainCtrl.whatever.showPlayerTwoName"  placeholder="Please type yout name">
-                <input type="button" value="Player Two Confirm Name" ng-click="mainCtrl.playerTwoNameChange(); mainCtrl.playerTwoHere=true"
+                <input type="button" value="Player Two Confirm Name" ng-click="mainCtrl.playerTwoNameChange(); mainCtrl.playerTwoHere=true; mainCtrl.whatsoever.playerTwoInRoom=true"
                 ng-show="mainCtrl.whatever.showPlayerTwoName" >
 
 
@@ -53,7 +53,9 @@
                     </span>
                 </div>
             </div>
-
+<!--             <div id="showPlayerTurn">
+                <h2 class= "playerTurn" ng-bind="mainCtrl.whatever.playerTurn"> </h2>
+            </div> -->
             <div class= "buttonWrapper">
                 <input type="button" class="clearButton" value="New Round" ng-click="mainCtrl.clearButton()"> 
                 <input type="button" class="clearButton" value="New Game" ng-click="mainCtrl.newGameButton()"> 
