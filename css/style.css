@@ -1,25 +1,69 @@
+body {
+	background-image: url("../images/beachbackground1.jpg")
+
+}
+
+
 #gridContainer {
-	height: 300px;
-	width: 300px;
+	height: 306px;
+	width: 306px;
 	margin: 0 auto;
 }
 
 .grids {
 	height: 100px;
-	width: 30%;
+	width: 100px;
 	border: solid 1px black;
 	float: left;
 	margin: 0 auto;
+	background:rgba(255,255,255,0.5);
 }
-
-.x {
+/*.grids:hover {
 	background-color: red;
-}
+}*/
 
-.o {
-	background-color: blue;
-}
+.playerName, .playerScore, .playerResult, .playerNameInput, .buttonWrapper {
+	text-align: center;
+	margin: 20px;
 
+}
 h1, h2 {
 	display: inline;
 }
+
+		.box0:hover {
+			background-image: url("../images/ira.gif");
+			background-size: 100px 100px;
+		}
+		.box1:hover {
+			background-image: url("../images/blaise.gif");
+			background-size: 100px 100px;
+		}
+		.box2:hover {
+			background-image: url("../images/john.gif");
+			background-size: 100px 100px;
+		}
+		.box3:hover {
+			background-image: url("../images/kenaniah.gif");
+			background-size: 100px 100px;
+		}
+		.box4:hover {
+			background-image: url("../images/jj.gif");
+			background-size: 100px 100px;
+		}
+		.box5:hover {
+			background-image: url("../images/kenaniah2.gif");
+			background-size: 100px 100px;
+		}
+		.box6:hover {
+			background-image: url("../images/john2.gif");
+			background-size: 100px 100px;
+		}
+		.box7:hover {
+			background-image: url("../images/blaise2.gif");
+			background-size: 100px 100px;
+		}
+		.box8:hover {
+			background-image: url("../images/ira2.gif");
+			background-size: 100px 100px;
+		}

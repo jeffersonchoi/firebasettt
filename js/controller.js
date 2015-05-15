@@ -21,6 +21,7 @@ angular
         self.playerList = "Player 1", "Player 2";
         self.playerOneNameChange = playerOneNameChange;
         self.playerTwoNameChange = playerTwoNameChange;
+        self.newGameButton = newGameButton;
         self.whatever = whatever();
 
 
@@ -46,31 +47,31 @@ angular
 
             self.whatever.gridList = [
             	{
-                    id: 0, 
+                    id: "box0", 
                     value: ""
                 } , {
-                    id: 1, 
+                    id: "box1", 
                     value: ""
                 } , {
-                    id: 2, 
+                    id: "box2", 
                     value: ""
                 } , {
-                    id: 3, 
+                    id: "box3", 
                     value: ""
                 } , {
-                    id: 4, 
+                    id: "box4", 
                     value: ""
                 } , {
-                    id: 5, 
+                    id: "box5", 
                     value: ""
                 } , {
-                    id: 6, 
+                    id: "box6", 
                     value: ""
                 } , {
-                    id: 7, 
+                    id: "box7", 
                     value: ""
                 } , {
-                    id: 8, 
+                    id: "box8", 
                     value: "" 
                 }
                 ];
@@ -160,7 +161,7 @@ angular
 					self.whatever.showWinner = true;
 				} 
 			//deciding tie game
-				else if (self.whatever.counter == 9) {	
+				else if (self.whatever.counter == 10) {	
 					console.log("tie")
 					self.whatever.winner = "It is a tie!";
 					self.whatever.showWinner=true;
@@ -175,38 +176,52 @@ angular
 			self.whatever.counter = 1;
             self.whatever.gridList = [
             	{
-                    id: 0, 
+                    id: "box0", 
                     value: ""
                 } , {
-                    id: 1, 
+                    id: "box1", 
                     value: ""
                 } , {
-                    id: 2, 
+                    id: "box2", 
                     value: ""
                 } , {
-                    id: 3, 
+                    id: "box3", 
                     value: ""
                 } , {
-                    id: 4, 
+                    id: "box4", 
                     value: ""
                 } , {
-                    id: 5, 
+                    id: "box5", 
                     value: ""
                 } , {
-                    id: 6, 
+                    id: "box6", 
                     value: ""
                 } , {
-                    id: 7, 
+                    id: "box7", 
                     value: ""
                 } , {
-                    id: 8, 
+                    id: "box8", 
                     value: "" 
                 }
-             ];
+                ];
             self.whatever.winner = "winner";
         	self.whatever.showWinner = false;
             self.whatever.$save();
 		}
+
+		function newGameButton() {
+        	self.clearButton();
+        	self.whatever.playerOneScore = 0;
+        	self.whatever.playerTwoScore = 0;
+        	self.whatever.counter = 1;
+        	self.whatever.showPlayerOneName = true;
+        	self.whatever.showPlayerTwoName = true;
+      		self.whatever.playerOne = "Player 1";
+        	self.whatever.playerTwo = "Player 2";
+        	self.whatever.$save();
+        }
+
+
 
 		function playerOneNameChange() {
            
@@ -218,7 +233,6 @@ angular
             self.whatever.showPlayerTwoName = !self.whatever.showPlayerTwoName;
             self.whatever.$save();
         }
-
 
 
 
