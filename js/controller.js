@@ -17,6 +17,9 @@ angular
         self.showName = true;
         self.playerOneScore = 0;
         self.playerTwoScore = 0;
+        self.winner = "winner";
+        self.showWinner = false;
+        self.getWinner = getWinner;
         
         self.whatever = whatever();
 
@@ -78,22 +81,72 @@ angular
                 self.whatever.counter % 2 !== 0  
                 && self.whatever.gridList[$index].value == ""
             ) {
-	            console.log(self.whatever.gridList[$index])
+
+	            console.log(self.whatever.gridList[$index].id)
 	            self.whatever.counter++;
 	            self.whatever.gridList[$index].value = self.p1;
-	            self.whatever.$save();
+	            console.log(self.whatever.gridList[$index].value)
             } 
             else if (
                 self.whatever.counter % 2 == 0 
                 && self.whatever.gridList[$index].value == ""
             ) {
-            	console.log(self.whatever.gridList[$index])
+            	console.log(self.whatever.gridList[$index].id)
                 self.whatever.counter++;
                 self.whatever.gridList[$index].value = self.p2;
+                console.log(self.whatever.gridList[$index].value)
                 self.whatever.$save();
             }
+            self.getWinner();
             self.whatever.$save();
+
         }
+
+
+
+        function getWinner() {
+        	var tokens = [self.p1, self.p2];
+				for (var i = 0; i < tokens.length; i++) {
+				var t = tokens[i];
+
+					if (
+					((self.whatever.gridList[0].value == t ) && (self.whatever.gridList[1].value == t ) && (self.whatever.gridList[2].value == t )) || 
+				    ((self.whatever.gridList[3].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[5].value == t )) ||
+			        ((self.whatever.gridList[6].value == t ) && (self.whatever.gridList[7].value == t ) && (self.whatever.gridList[8].value == t )) ||
+		 		    ((self.whatever.gridList[0].value == t ) && (self.whatever.gridList[3].value == t ) && (self.whatever.gridList[6].value == t )) ||
+		 	  	    ((self.whatever.gridList[1].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[7].value == t )) ||
+				    ((self.whatever.gridList[2].value == t ) && (self.whatever.gridList[5].value == t ) && (self.whatever.gridList[8].value == t )) ||
+				    ((self.whatever.gridList[0].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[8].value == t )) ||
+				    ((self.whatever.gridList[2].value == t ) && (self.whatever.gridList[4].value == t ) && (self.whatever.gridList[6].value == t )) 
+					){ 	
+						if (t == self.p1) {
+							console.log("p1")
+							self.playerOneScore++;
+							self.winner = self.playerOne + " wins";
+						} else if (t == self.p2) {
+							console.log("p2")
+							self.playerTwoScore++;
+							self.winner = self.playerTwo + " wins";		
+						}
+						self.whatever.$save();
+						self.showWinner = true;
+					} 
+
+				//deciding tie game
+				else if (self.whatever.counter == 9) {	
+					console.log("tie")
+					self.winner = "It is a tie!";
+					self.showWinner=true;
+				}
+
+			}
+		}
+
+
+
+
+
+
 
 
 

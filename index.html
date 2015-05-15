@@ -13,19 +13,23 @@
     <body ng-controller="MainController as mainCtrl">
 
         <header>
-            <div class="playerName">
+            <div class= "playerName">
                 <h1 class= "player1" ng-bind="mainCtrl.playerOne"> </h1> 
                     VS 
                 <h1 class= "player2" ng-bind="mainCtrl.playerTwo"> </h1>
             </div>
 
-            <div class="playerScore">
+            <div class= "playerScore">
                 <h2 class= "player1score" ng-bind="mainCtrl.playerOneScore"> </h1> 
                     VS 
                 <h2 class= "player2score" ng-bind="mainCtrl.playerTwoScore"> </h1>
             </div>
 
-            <div class="playerNameInput">
+            <div class= "playResult">
+                <h2 class="playerResult" ng-bind="mainCtrl.winner" ng-show="mainCtrl.showWinner"> </h2>
+            </div>
+
+            <div class= "playerNameInput">
                 <input type="textbox" ng-model="mainCtrl.playerOne" 
                 ng-show="mainCtrl.showName"  placeholder="Please type yout name">
                 <input type="textbox" ng-model="mainCtrl.playerTwo" 
