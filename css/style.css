@@ -19,3 +19,7 @@
 .o {
 	background-color: blue;
 }
+
+h1, h2 {
+	display: inline;
+}
