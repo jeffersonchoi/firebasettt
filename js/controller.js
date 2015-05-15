@@ -10,12 +10,13 @@ angular
 
         self.decidePlayerMove = decidePlayerMove;
 
-        self.p1 = "x";
+        self.p1 = "x"
+       
 		self.p2 = "o";
 		// self.playerOneNameChange = playerOneNameChange;
 		// self.playerTwoNameChange = playerTwoNameChange;
-		// self.playerOneHere = playerOneHere;
-		// self.playerTwoHere = playerTwoHere;
+		self.playerOneHere = false;
+		self.playerTwoHere = false;
         self.getWinner = getWinner;
         self.clearButton = clearButton;
         self.playerList = "Player 1", "Player 2";
@@ -109,7 +110,8 @@ angular
         	}
 
             if (
-                self.whatever.counter % 2 == 1
+            	self.playerOneHere == true
+                && self.whatever.counter % 2 == 1
                 && self.whatever.gridList[$index].value == "" 
             ) {
 
@@ -119,7 +121,8 @@ angular
 	            console.log(self.whatever.gridList[$index].value)
             } 
             else if (
-                self.whatever.counter % 2 == 0 
+            	self.playerTwoHere == true
+                && self.whatever.counter % 2 == 0 
                 && self.whatever.gridList[$index].value == ""
             ) {
             	console.log(self.whatever.gridList[$index].id)

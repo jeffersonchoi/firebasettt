@@ -32,11 +32,11 @@
             <div class= "playerNameInput">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerOne" 
                 ng-show="mainCtrl.whatever.showPlayerOneName"  placeholder="Please type yout name">
-                <input type="button" value="Player One Confirm Name" ng-click="mainCtrl.playerOneNameChange()"
+                <input type="button" value="Player One Confirm Name" ng-click="mainCtrl.playerOneNameChange(); mainCtrl.playerOneHere=true"
                 ng-show="mainCtrl.whatever.showPlayerOneName">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerTwo" 
                 ng-show="mainCtrl.whatever.showPlayerTwoName"  placeholder="Please type yout name">
-                <input type="button" value="Player Two Confirm Name" ng-click="mainCtrl.playerTwoNameChange()"
+                <input type="button" value="Player Two Confirm Name" ng-click="mainCtrl.playerTwoNameChange(); mainCtrl.playerTwoHere=true"
                 ng-show="mainCtrl.whatever.showPlayerTwoName" >
 
 
@@ -49,7 +49,7 @@
             <div id="gridContainer">
                 <div ng-repeat="grid in mainCtrl.whatever.gridList track by $index">
                     <span class="grids {{grid.id}}" ng-click="mainCtrl.decidePlayerMove($index)" 
-                          ng-bind="grid.value">  
+                          ng-bind="grid.value">  <img ng-src="{{grid.value}}" >
                     </span>
                 </div>
             </div>

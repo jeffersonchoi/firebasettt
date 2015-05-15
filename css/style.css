@@ -31,39 +31,59 @@ h1, h2 {
 	display: inline;
 }
 
-		.box0:hover {
-			background-image: url("../images/ira.gif");
-			background-size: 100px 100px;
-		}
-		.box1:hover {
-			background-image: url("../images/blaise.gif");
-			background-size: 100px 100px;
-		}
-		.box2:hover {
-			background-image: url("../images/john.gif");
-			background-size: 100px 100px;
-		}
-		.box3:hover {
-			background-image: url("../images/kenaniah.gif");
-			background-size: 100px 100px;
-		}
-		.box4:hover {
-			background-image: url("../images/jj.gif");
-			background-size: 100px 100px;
-		}
-		.box5:hover {
-			background-image: url("../images/kenaniah2.gif");
-			background-size: 100px 100px;
-		}
-		.box6:hover {
-			background-image: url("../images/john2.gif");
-			background-size: 100px 100px;
-		}
-		.box7:hover {
-			background-image: url("../images/blaise2.gif");
-			background-size: 100px 100px;
-		}
-		.box8:hover {
-			background-image: url("../images/ira2.gif");
-			background-size: 100px 100px;
-		}
+h1 {
+	font-family: Papyrus, fantasy;
+	font-size: 50px;
+	font-style: italic;
+	font-variant: small-caps;
+	font-weight: bold;
+	line-height: 24px;
+}
+
+h2 {
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+	font-size: 30px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.3999996185303px;
+
+}
+
+
+.box0:hover {
+	background-image: url("../images/ira.gif");
+	background-size: 100px 100px;
+}
+.box1:hover {
+	background-image: url("../images/blaise.gif");
+	background-size: 100px 100px;
+}
+.box2:hover {
+	background-image: url("../images/john.gif");
+	background-size: 100px 100px;
+}
+.box3:hover {
+	background-image: url("../images/kenaniah.gif");
+	background-size: 100px 100px;
+}
+.box4:hover {
+	background-image: url("../images/jj.gif");
+	background-size: 100px 100px;
+}
+.box5:hover {
+	background-image: url("../images/kenaniah2.gif");
+	background-size: 100px 100px;
+}
+.box6:hover {
+	background-image: url("../images/john2.gif");
+	background-size: 100px 100px;
+}
+.box7:hover {
+	background-image: url("../images/blaise2.gif");
+	background-size: 100px 100px;
+}
+.box8:hover {
+	background-image: url("../images/ira2.gif");
+	background-size: 100px 100px;
+}
