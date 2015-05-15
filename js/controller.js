@@ -7,12 +7,13 @@ angular
     function mainController($firebaseObject) {
 
         var self = this;
-        self.counter = 1;
+        // self.counter = 1;
         self.decidePlayerMove = decidePlayerMove;
         self.nameChange = nameChange;
-
         self.playerOne = "Player 1";
         self.playerTwo = "Player 2";
+        self.p1 = "x";
+		self.p2 = "o";
         self.showName = true;
         self.playerOneScore = 0;
         self.playerTwoScore = 0;
@@ -28,6 +29,7 @@ angular
                 
         }
         self.whatever.$loaded(function() {
+        	self.whatever.counter = 1;
             self.whatever.gridList = [
             	{
                     id: 0, 
@@ -58,7 +60,6 @@ angular
                     value: "" 
                 }
                 ];
-                
                 self.whatever.$save();
             });
 
@@ -72,24 +73,24 @@ angular
         // Odd number to determine Player 1 's move = "o"
         // Even number to determine Player 2 's move = "x"
         // */
-        function decidePlayerMove($index) { 
-        	console.log(self.whatever.gridList[$index].value);                   
+        function decidePlayerMove($index) {                 
             if (
-                self.counter % 2 !== 0  
+                self.whatever.counter % 2 !== 0  
                 && self.whatever.gridList[$index].value == ""
             ) {
 	            console.log(self.whatever.gridList[$index])
-	            self.counter++;
-	            self.whatever.gridList[$index].value = "o";
-	            console.log(self.whatever.gridList[$index].value)
-            } else if (
-                self.counter % 2 == 0 
+	            self.whatever.counter++;
+	            self.whatever.gridList[$index].value = self.p1;
+	            self.whatever.$save();
+            } 
+            else if (
+                self.whatever.counter % 2 == 0 
                 && self.whatever.gridList[$index].value == ""
             ) {
             	console.log(self.whatever.gridList[$index])
-                self.counter++;
-                self.whatever.gridList[$index].value = "x";
-               console.log(self.whatever.gridList[$index].value+"123a")
+                self.whatever.counter++;
+                self.whatever.gridList[$index].value = self.p2;
+                self.whatever.$save();
             }
             self.whatever.$save();
         }
