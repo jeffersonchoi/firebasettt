@@ -28,25 +28,36 @@ angular
                 
         }
         self.whatever.$loaded(function() {
-            self.whatever.gridList = [{
-                    id: 1, value: ""
+            self.whatever.gridList = [
+            	{
+                    id: 0, 
+                    value: ""
                 } , {
-                    id: 2, value: ""
+                    id: 1, 
+                    value: ""
                 } , {
-                    id: 3, value: ""
+                    id: 2, 
+                    value: ""
                 } , {
-                    id: 4, value: ""
+                    id: 3, 
+                    value: ""
                 } , {
-                    id: 5, value: ""
+                    id: 4, 
+                    value: ""
                 } , {
-                    id: 6, value: ""
+                    id: 5, 
+                    value: ""
                 } , {
-                    id: 7, value: ""
+                    id: 6, 
+                    value: ""
                 } , {
-                    id: 8, value: ""
+                    id: 7, 
+                    value: ""
                 } , {
-                    id: 9, value: "" 
-                }];
+                    id: 8, 
+                    value: "" 
+                }
+                ];
                 
                 self.whatever.$save();
             });
@@ -61,27 +72,26 @@ angular
         // Odd number to determine Player 1 's move = "o"
         // Even number to determine Player 2 's move = "x"
         // */
-        function decidePlayerMove($index) {                    
+        function decidePlayerMove($index) { 
+        	console.log(self.whatever.gridList[$index].value);                   
             if (
                 self.counter % 2 !== 0  
                 && self.whatever.gridList[$index].value == ""
-
-                )    {
-                    (console.log="!=0")
-                    self.counter++;
-                    self.whatever.gridList[$index].update({id: $index, value: "o"});
-                    (console.log="!=0   o")
-                    } 
-            else if (
+            ) {
+	            console.log(self.whatever.gridList[$index])
+	            self.counter++;
+	            self.whatever.gridList[$index].value = "o";
+	            console.log(self.whatever.gridList[$index].value)
+            } else if (
                 self.counter % 2 == 0 
                 && self.whatever.gridList[$index].value == ""
-                    (console.log="==0")
-                ) {
-                    self.counter++;
-                    self.whatever.gridList[$index].update({id: $index, value: "x"});
-                    (console.log="==0 x")
-                }
-            self.whatever.$save;
+            ) {
+            	console.log(self.whatever.gridList[$index])
+                self.counter++;
+                self.whatever.gridList[$index].value = "x";
+               console.log(self.whatever.gridList[$index].value+"123a")
+            }
+            self.whatever.$save();
         }
 
 

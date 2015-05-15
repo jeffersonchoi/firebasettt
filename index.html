@@ -26,23 +26,23 @@
             </div>
 
             <div class="playerNameInput">
-                <input type="textbox" ng-model="mainCtrl.playerOne" ng-show="mainCtrl.showName" 
-                    placeholder="Please type yout name">
-                <input type="textbox" ng-model="mainCtrl.playerTwo" ng-show="mainCtrl.showName" 
-                    placeholder="Please type yout name">
+                <input type="textbox" ng-model="mainCtrl.playerOne" 
+                ng-show="mainCtrl.showName"  placeholder="Please type yout name">
+                <input type="textbox" ng-model="mainCtrl.playerTwo" 
+                ng-show="mainCtrl.showName"  placeholder="Please type yout name">
                 <input type="button" value="Confirm" ng-click="mainCtrl.nameChange()" 
                     ng-show="mainCtrl.showName">
             </div>
         </header>
 
         <main>
-
             <div id="gridContainer">
                 <div ng-repeat="grid in mainCtrl.whatever.gridList track by $index">
-                    <span class="grids" ng-click="mainCtrl.decidePlayerMove($index)" ng-bind="grid.value"> </span> 
+                    <span class="grids" ng-click="mainCtrl.decidePlayerMove($index)" 
+                          ng-bind="grid.value">  
+                    </span>
                 </div>
             </div>
-
         </main>
 
 
