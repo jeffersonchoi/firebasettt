@@ -32,11 +32,11 @@
             <div class= "playerNameInput">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerOne" 
                 ng-show="mainCtrl.whatever.showPlayerOneName"  placeholder="Please type yout name">
-                <input type="button" value="Player One Confirm Name" ng-click="mainCtrl.playerOneNameChange(); mainCtrl.playerOneHere=true; mainCtrl.whatsoever.playerOneInRoom=true"
+                <input type="button" value="Player One Registers Name" ng-click="mainCtrl.playerOneNameChange(); mainCtrl.playerOneHere=true; mainCtrl.whatsoever.playerOneHere=true"
                 ng-show="mainCtrl.whatever.showPlayerOneName">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerTwo" 
                 ng-show="mainCtrl.whatever.showPlayerTwoName"  placeholder="Please type yout name">
-                <input type="button" value="Player Two Confirm Name" ng-click="mainCtrl.playerTwoNameChange(); mainCtrl.playerTwoHere=true; mainCtrl.whatsoever.playerTwoInRoom=true"
+                <input type="button" value="Player Two Registers Name" ng-click="mainCtrl.playerTwoNameChange(); mainCtrl.playerTwoHere=true; mainCtrl.whatsoever.playerTwoHere=true"
                 ng-show="mainCtrl.whatever.showPlayerTwoName" >
 
 
@@ -55,7 +55,8 @@
                 </div>
             </div>
             <div id="showPlayerTurn">
-                <span class= "playerTurn" ng-bind="mainCtrl.whatever.playerTurn"> </span>
+                <span class= "playerTurn" ng-bind="mainCtrl.whatever.playerTurn" ng-show="mainCtrl.whatever.playerNameAlert"> </span>
+<!--                 <span class= "playerNameAlert" ng-bind="mainCtrl.whatever.playerNameAlertMessage">testing </span> -->
             </div>
             <div class= "buttonWrapper">
                 <input type="button" class="clearButton" value="New Round" ng-click="mainCtrl.clearButton()"> 

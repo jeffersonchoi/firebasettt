@@ -38,6 +38,7 @@ h1 {
 	font-variant: small-caps;
 	font-weight: bold;
 	line-height: 24px;
+	color: yellow;
 }
 
 h2 {
@@ -47,12 +48,13 @@ h2 {
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 15.3999996185303px;
+	color: red;
 }
 #showPlayerTurn {
 	text-align: center;
 	margin: 20px auto;
 }
-.playerTurn {
+.playerTurn, .playerNameAlert {
 	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
 	font-size: 30px;
 	font-style: normal;
