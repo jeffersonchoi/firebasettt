@@ -48,17 +48,19 @@
         <main>
             <div id="gridContainer">
                 <div ng-repeat="grid in mainCtrl.whatever.gridList track by $index">
-                    <span class="grids {{grid.id}}" ng-click="mainCtrl.decidePlayerMove($index)" 
-                          ng-bind="grid.value">  <img ng-src="{{grid.value}}" >
+                    <span class="grids {{grid.id}}" ng-click="mainCtrl.decidePlayerMove($index)"  
+                          ng-class="{x: grid.value === 'x',
+                             o: grid.value === 'o'}"> 
                     </span>
                 </div>
             </div>
-<!--             <div id="showPlayerTurn">
-                <h2 class= "playerTurn" ng-bind="mainCtrl.whatever.playerTurn"> </h2>
-            </div> -->
+            <div id="showPlayerTurn">
+                <span class= "playerTurn" ng-bind="mainCtrl.whatever.playerTurn"> </span>
+            </div>
             <div class= "buttonWrapper">
                 <input type="button" class="clearButton" value="New Round" ng-click="mainCtrl.clearButton()"> 
                 <input type="button" class="clearButton" value="New Game" ng-click="mainCtrl.newGameButton()"> 
+                <input type="button" class="clearButton" value="Reset Game" ng-click="mainCtrl.resetButton()">
             </div>
         </main>
 

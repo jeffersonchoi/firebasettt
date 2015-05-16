@@ -25,7 +25,7 @@ angular
         self.newGameButton = newGameButton;
         self.whatever = whatever();
         self.whatsoever = whatsoever();
-
+        self.resetButton = resetButton;
 
         function whatsoever() {
             var ref = new Firebase("https://jeffersonttt.firebaseio.com/game2");
@@ -62,12 +62,9 @@ angular
 	        	self.whatever.showWinner = false;
 
 
-	        	self.whatever.playerTurn = "Let's start!";
+	        	self.whatever.playerTurn = "Player One Let's get started!";
 
-	        	// if (self.whatever.counter % 2 == 1) {
-	        	// 	self.whatever.playerTurn = self.whatever.playerOne + " 's Turn!";
-	        	// } else self.whatever.playerTurn = self.whatever.playerTwo + " 's Turn!";
-
+	   
 	            self.whatever.gridList = [
 	            	{
 	                    id: "box0", 
@@ -119,6 +116,7 @@ angular
         // Odd number to determine Player 1 's move = "o"
         // Even number to determine Player 2 's move = "x"
         // */
+
         function decidePlayerMove($index) {      
 
         	if (self.whatever.winner !== "winner") {
@@ -134,7 +132,8 @@ angular
 	            console.log(self.whatever.gridList[$index].id)
 	            self.whatever.counter++;
 	            self.whatever.gridList[$index].value = self.p1;
-	            console.log(self.whatever.gridList[$index].value)
+	            console.log(self.whatever.gridList[$index].value);
+	            self.whatever.playerTurn = self.whatever.playerTwo + " 's Turn Now!";
             } 
             else if (
             	self.playerTwoHere == true
@@ -145,7 +144,7 @@ angular
                 self.whatever.counter++;
                 self.whatever.gridList[$index].value = self.p2;
                 console.log(self.whatever.gridList[$index].value)
-                self.whatever.$save();
+                self.whatever.playerTurn = self.whatever.playerOne + " 's Turn Now!";
             }
             self.getWinner();
             self.whatever.$save();
@@ -225,9 +224,9 @@ angular
                 ];
             self.whatever.winner = "winner";
         	self.whatever.showWinner = false;
+        	self.whatever.playerTurn = "Player One Let's get started!";
             self.whatever.$save();
-            self.whatsoever.playerOneHere = false;
-        	self.whatsoever.playerTwoHere = false;
+
 		}
 
 		function newGameButton() {
@@ -242,7 +241,14 @@ angular
         	self.whatever.$save();
         }
 
+        function resetButton() {
+        	self.clearButton();
+        	self.newGameButton();
+        	self.whatsoever.playerOneHere = false;
+        	self.whatsoever.playerTwoHere = false;
+        	self.whatever.$save;
 
+        }
 
 		function playerOneNameChange() {
            

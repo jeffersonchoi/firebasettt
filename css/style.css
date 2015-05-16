@@ -22,12 +22,12 @@ body {
 	background-color: red;
 }*/
 
-.playerName, .playerScore, .playerResult, .playerNameInput, .buttonWrapper {
+.playerName, .playerScore, .playerResult, .playerNameInput, .buttonWrapper{
 	text-align: center;
 	margin: 20px;
 
 }
-h1, h2 {
+h1, h2{
 	display: inline;
 }
 
@@ -47,7 +47,18 @@ h2 {
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 15.3999996185303px;
-
+}
+#showPlayerTurn {
+	text-align: center;
+	margin: 20px auto;
+}
+.playerTurn {
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+	font-size: 30px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.3999996185303px;
 }
 
 
@@ -85,5 +96,13 @@ h2 {
 }
 .box8:hover {
 	background-image: url("../images/ira2.gif");
+	background-size: 100px 100px;
+}
+.x, .x:hover {
+	background-image: url("../images/kiss.png");
+	background-size: 100px 100px;
+}
+.o, .o:hover {
+	background-image: url("../images/love.png");
 	background-size: 100px 100px;
 }
