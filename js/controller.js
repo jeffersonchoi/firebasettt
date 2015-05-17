@@ -21,10 +21,10 @@ angular
 
         self.getWinner = getWinner;
         self.clearButton = clearButton;
-        // self.playerList = "Player 1", "Player 2";
+
         self.playerOneNameChange = playerOneNameChange;
         self.playerTwoNameChange = playerTwoNameChange;
-        self.newGameButton = newGameButton;
+        // self.newGameButton = newGameButton;
         self.whatever = whatever();
         self.whatsoever = whatsoever();
         self.resetButton = resetButton;
@@ -84,7 +84,6 @@ angular
 	        	self.whatever.showPlayerOneName = true;
 	        	self.whatever.showPlayerTwoName = true;
 	        	self.whatever.showWinner = false;
-	        	self.whatever.aiBB = true;
 	        	self.whatever.playerNameAlert = true;
 	        	self.whatever.playerTwoJoinAlert = false;
 	        	
@@ -201,7 +200,7 @@ angular
 
         function aiMove() {
         	console.log("aiMove")
-        	self.dangerAlert();
+        	self.aiWinLogic();
 	        self.whatever.counter++;
 	        self.whatever.playerTurn = self.whatever.playerOne + " 's Turn Now!!";
 	        self.whatever.$save();
@@ -230,13 +229,7 @@ angular
 
         function dangerAlert() {
 	        	console.log("dangerAlert");
-	        	if (
-	        	 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[3].value == ""||
-	        	 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[3].value == ""
-	        	) {
-	        			self.whatever.gridList[3].value = "v"
-	        	}
-			else if (
+			if (
 				 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[0].value == ""|| 
 				 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[2].value == "x") && self.whatever.gridList[0].value == ""|| 
 				 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[0].value == ""
@@ -297,12 +290,18 @@ angular
 				) {
 						self.whatever.gridList[8].value = "v"
 				}
+			else if (
+	        	 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[3].value == ""||
+	        	 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[3].value == ""
+	        	) {
+	        			self.whatever.gridList[3].value = "v"
+	        	}
+				
 			else {
-				aiWinLogic();
+				self.aiMovePattern();
 			}
 
-			self.getWinner();
-			self.whatever.$save();
+
 		}
 
 		function aiWinLogic() {
@@ -368,9 +367,10 @@ angular
         			self.whatever.gridList[8].value = "v"
         	}
         	else {
-        		aiMovePattern();
+        		self.dangerAlert()
         	}
-        	self.whatever.$save();
+        	self.getWinner();
+			self.whatever.$save();
 
 		}
 
@@ -513,28 +513,81 @@ angular
 
 			}
 			//newGameButton allows player one and player two to start a new game;
-			function newGameButton() {
-	        	self.clearButton();
-	        	self.whatever.playerOneScore = 0;
-	        	self.whatever.playerTwoScore = 0;
-	        	self.whatever.counter = 1;
-	        	self.whatever.showPlayerOneName = true;
-	        	self.whatever.showPlayerTwoName = true;
-	      		self.whatever.playerOne = "Player 1";
-	        	self.whatever.playerTwo = "Player 2";
-	        	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
-	        	self.whatever.aiName =  false;
-	        	self.whatever.$save();
-	        }
-        //resetButton allows 3rd people to restart a new game;
+			// function newGameButton() {
+	  //       	self.clearButton();
+	  //       	self.whatever.playerOneScore = 0;
+	  //       	self.whatever.playerTwoScore = 0;
+	  //       	self.whatever.counter = 1;
+	  //       	self.whatever.showPlayerOneName = true;
+	  //       	self.whatever.showPlayerTwoName = true;
+	  //     		self.whatever.playerOne = "Player 1";
+	  //       	self.whatever.playerTwo = "Player 2";
+	  //       	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
+	  //       	self.whatever.$save();
+	        // }
+        // resetButton allows 3rd people to restart a new game;
         function resetButton() {
-        	self.clearButton();
-        	self.newGameButton();
+        	self.whatever.counter = 1;
+            self.whatever.gridList = [
+            	{
+                    id: "box0", 
+                    value: ""
+                } , {
+                    id: "box1", 
+                    value: ""
+                } , {
+                    id: "box2", 
+                    value: ""
+                } , {
+                    id: "box3", 
+                    value: ""
+                } , {
+                    id: "box4", 
+                    value: ""
+                } , {
+                    id: "box5", 
+                    value: ""
+                } , {
+                    id: "box6", 
+                    value: ""
+                } , {
+                    id: "box7", 
+                    value: ""
+                } , {
+                    id: "box8", 
+                    value: "" 
+                }
+                ];
+            self.whatever.winner = "winner";
+        	self.whatever.showWinner = false;
+        	self.whatever.playerNameAlert = true;
+        	self.whatever.playerTwoJoinAlert = false;
+        	self.whatever.playerTurn = self.whatever.playerOne + " 's Turn Now!!";
+
+        	self.whatever.playerOneScore = 0;
+        	self.whatever.playerTwoScore = 0;
+        	self.whatever.counter = 1;
+        	self.whatever.showPlayerOneName = true;
+        	self.whatever.showPlayerTwoName = true;
+      		self.whatever.playerOne = "Player 1";
+        	self.whatever.playerTwo = "Player 2";
+        	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
         	self.whatsoever.playerOneHere = false;
         	self.whatsoever.playerTwoHere = false;
         	self.whatsoever.aiHere = false;
+        	self.whatever.playerOneScore = 0;
+        	self.whatever.playerTwoScore = 0;
+        	self.whatever.counter = 1;
+        	self.whatever.showPlayerOneName = true;
+        	self.whatever.showPlayerTwoName = true;
+      		self.whatever.playerOne = "Player 1";
+        	self.whatever.playerTwo = "Player 2";
+        	self.playerOneHere = false;
+			self.playerTwoHere = false;
+        	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
         	// self.whatever.aiButton = true;
         	self.whatever.$save;
+        	self.whatsoever.$save;
 
         }
         //function to hide the playerone name button after button is clicked.
