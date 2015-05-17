@@ -81,7 +81,7 @@ angular
 	        	self.whatever.showWinner = false;
 	        	self.whatever.playerNameAlert = true;
 
-				self.whatever.aiScore = 0;
+				// self.whatever.aiScore = 0;
 
 
 				self.whatever.playerTurn = self.whatever.playerTwo + " Let's get started!!!";
@@ -217,73 +217,74 @@ angular
 
 
         function dangerAlert() {
-        	console.log("dangerAlert");
-		if (
-			 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[0].value == ""|| 
-			 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[2].value == "x") && self.whatever.gridList[0].value == ""|| 
-			 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[0].value == ""
-			) {
-					self.whatever.gridList[0].value = "v"
+	        	console.log("dangerAlert");
+			if (
+				 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[0].value == ""|| 
+				 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[2].value == "x") && self.whatever.gridList[0].value == ""|| 
+				 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[0].value == ""
+				) {
+						self.whatever.gridList[0].value = "v"
+				}
+			else if (
+				 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[2].value == "x") && self.whatever.gridList[1].value == ""|| 
+				 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[7].value == "x") && self.whatever.gridList[1].value == ""
+				) {
+						self.whatever.gridList[1].value = "v"
+				}
+			else if (
+				 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[1].value == "x") && self.whatever.gridList[2].value == ""|| 
+				 (self.whatever.gridList[5].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[2].value == ""|| 
+				 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[2].value == ""
+				) {
+						self.whatever.gridList[2].value = "v";
+						console.log("ai dangeralert grid 2")
+				}
+			else if (
+				 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[3].value == ""|| 
+				 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[5].value == "x") && self.whatever.gridList[3].value == ""
+				) {
+						self.whatever.gridList[3].value = "v"
+				}
+			else if (
+				 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[5].value == "x") && self.whatever.gridList[4].value == ""|| 
+				 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[7].value == "x") && self.whatever.gridList[4].value == ""|| 
+				 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[4].value == ""||
+				 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[4].value == ""
+				) {
+						self.whatever.gridList[4].value = "v"
+				}
+			else if (
+				 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[5].value == ""|| 
+				 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[5].value == ""
+				) {
+						self.whatever.gridList[5].value = "v"
+				}
+			else if (
+				 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[3].value == "x") && self.whatever.gridList[6].value == ""|| 
+				 (self.whatever.gridList[7].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[6].value == ""|| 
+				 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[6].value == ""
+				) {
+						self.whatever.gridList[6].value = "v"
+				}
+			else if (
+				 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[7].value == ""|| 
+				 (self.whatever.gridList[6].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[7].value == ""
+				) {
+						self.whatever.gridList[7].value = "v"
+				}
+		    else if (
+				 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[5].value == "x") && self.whatever.gridList[8].value == ""|| 
+				 (self.whatever.gridList[6].value == "x" && self.whatever.gridList[7].value == "x") && self.whatever.gridList[8].value == ""|| 
+				 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[8].value == ""
+				) {
+						self.whatever.gridList[8].value = "v"
+				}
+			else {
+				aiMovePattern();
+				
 			}
-		else if (
-			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[2].value == "x") && self.whatever.gridList[1].value == ""|| 
-			 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[7].value == "x") && self.whatever.gridList[1].value == ""
-			) {
-					self.whatever.gridList[1].value = "v"
-			}
-		else if (
-			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[1].value == "x") && self.whatever.gridList[2].value == ""|| 
-			 (self.whatever.gridList[5].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[2].value == ""|| 
-			 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[2].value == ""
-			) {
-					self.whatever.gridList[2].value = "v";
-					console.log("ai dangeralert grid 2")
-			}
-		else if (
-			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[3].value == ""|| 
-			 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[5].value == "x") && self.whatever.gridList[3].value == ""
-			) {
-					self.whatever.gridList[3].value = "v"
-			}
-		else if (
-			 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[5].value == "x") && self.whatever.gridList[4].value == ""|| 
-			 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[7].value == "x") && self.whatever.gridList[4].value == ""|| 
-			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[4].value == ""||
-			 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[4].value == ""
-			) {
-					self.whatever.gridList[4].value = "v"
-			}
-		else if (
-			 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[5].value == ""|| 
-			 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[5].value == ""
-			) {
-					self.whatever.gridList[5].value = "v"
-			}
-		else if (
-			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[3].value == "x") && self.whatever.gridList[6].value == ""|| 
-			 (self.whatever.gridList[7].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[6].value == ""|| 
-			 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[6].value == ""
-			) {
-					self.whatever.gridList[6].value = "v"
-			}
-		else if (
-			 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[7].value == ""|| 
-			 (self.whatever.gridList[6].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[7].value == ""
-			) {
-					self.whatever.gridList[7].value = "v"
-			}
-	    else if (
-			 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[5].value == "x") && self.whatever.gridList[8].value == ""|| 
-			 (self.whatever.gridList[6].value == "x" && self.whatever.gridList[7].value == "x") && self.whatever.gridList[8].value == ""|| 
-			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[8].value == ""
-			) {
-					self.whatever.gridList[8].value = "v"
-			}
-		else {
-			aiMovePattern();
-			
-		}
-		self.whatever.$save();
+			self.getWinner();
+			self.whatever.$save();
 		}
 
 
@@ -321,6 +322,7 @@ angular
 			else {
 				console.log("aiMovePatternEnding")
 			}
+			self.getWinner();
 			self.whatever.$save();
 		}
 
@@ -339,22 +341,9 @@ angular
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         /* function to get the winner*/
         function getWinner() {
-        	var tokens = [self.p1, self.p2];
+        	var tokens = [self.p1, self.p2, "v"];
 			for (var i = 0; i < tokens.length; i++) {
 				var t = tokens[i];
 
@@ -380,8 +369,8 @@ angular
 					
 					} else if (t == "v") {
 						console.log("ai")
-						self.whatever.aiScore++;
 						self.whatever.winner = "AI wins";	
+						// self.whatever.aiScore++;
 					}
 					
 					self.whatever.showWinner = true;
