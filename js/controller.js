@@ -584,6 +584,7 @@ angular
         	self.whatever.playerTwo = "Player 2";
         	self.playerOneHere = false;
 			self.playerTwoHere = false;
+			self.aiHere = false;
         	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
         	// self.whatever.aiButton = true;
         	self.whatever.$save;

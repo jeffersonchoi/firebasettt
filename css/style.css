@@ -17,9 +17,16 @@ body {
 	margin: 0 auto;
 	background:rgba(255,255,255,0.5);
 }
-/*.grids:hover {
-	background-color: red;
+/*.helpguide {
+	height: 50%;
+	width: 50%;
+	float: left;
+	font: red;
+	padding-top: 100px;
+	display: inline-block;
 }*/
+
+
 
 .playerName, .playerScore, .playerResult, .playerNameInput, .buttonWrapper{
 	text-align: center;

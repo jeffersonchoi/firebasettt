@@ -50,6 +50,19 @@
         </header>
 
         <main>
+
+
+<!--         <div class="helpGuide">
+            <ol>
+                <li> Input name, and click button to register. </li>
+                <li> Input name, and click button to register. </li>
+                <li> Input name, and click button to register. </li>
+                <li> Input name, and click button to register. </li>
+                <li> Input name, and click button to register. </li>
+                <li> Input name, and click button to register. </li>
+
+            </ol>
+        </div> -->
             <div id="gridContainer">
                 <div ng-repeat="grid in mainCtrl.whatever.gridList track by $index">
                     <span class="grids {{grid.id}}" ng-click="mainCtrl.decidePlayerMove($index); mainCtrl.letAiMove()"  
@@ -59,6 +72,7 @@
                     </span>
                 </div>
             </div>
+
             <div id="showPlayerTurn">
                 <span class= "playerTurn" ng-bind="mainCtrl.whatever.playerTurn" ng-show="mainCtrl.whatever.playerNameAlert"> </span>
             </div>
@@ -72,6 +86,8 @@
                 <input type="button" class="clearButton" value="Reset Game" ng-click="mainCtrl.resetButton()">
                 <input type="button" class="clearButton" value="Player2 Joins?" ng-click="mainCtrl.playerTwoJoinAlertFunction()">
             </div>
+
+
         </main>
 
 
