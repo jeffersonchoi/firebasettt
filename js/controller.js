@@ -520,8 +520,8 @@ angular
 	        	self.whatever.counter = 1;
 	        	self.whatever.showPlayerOneName = true;
 	        	self.whatever.showPlayerTwoName = true;
-	      		self.whatever.playerOne = "Player 1";
-	        	self.whatever.playerTwo = "Player 2";
+	      		self.whatever.playerOne = "";
+	        	self.whatever.playerTwo = "";
 	        	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
 	        	self.whatever.$save();
 	        }
