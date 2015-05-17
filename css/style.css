@@ -17,15 +17,20 @@ body {
 	margin: 0 auto;
 	background:rgba(255,255,255,0.5);
 }
-/*.helpguide {
-	height: 50%;
-	width: 50%;
+.helpGuide {
 	float: left;
-	font: red;
-	padding-top: 100px;
-	display: inline-block;
-}*/
-
+	display: inline;
+	background:rgba(255,255,255,0.5);
+	margin-left: 30px;
+	text-align: center;
+	padding-right: 10px;
+	font-family: serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 500;
+	line-height: 20.3999996185303px;
+}
 
 
 .playerName, .playerScore, .playerResult, .playerNameInput, .buttonWrapper{

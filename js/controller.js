@@ -606,7 +606,7 @@ angular
 
         function playerTwoJoinAlertFunction() {
         	self.whatever.playerTwoJoinAlert = !self.whatever.playerTwoJoinAlert;
-        	self.whatever.playerTwoJoinAlertMsg = "New Player Waiting! Press Reset Game Button!";
+        	self.whatever.playerTwoJoinAlertMsg = "New Player Alert! Reset Game to Accept Challenge!";
         	self.whatever.$save();
         }
 

@@ -32,12 +32,12 @@
             <div class= "playerNameInput">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerOne" 
                 ng-show="mainCtrl.whatever.showPlayerOneName"  placeholder="Please type yout name">
-                <input type="button" value="Player One Registers Name" ng-click="mainCtrl.playerOneNameChange(); 
+                <input type="button" value="P1 Registers" ng-click="mainCtrl.playerOneNameChange(); 
                 mainCtrl.playerOneHere=true; mainCtrl.whatsoever.playerOneHere=true"
                 ng-show="mainCtrl.whatever.showPlayerOneName">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerTwo" 
                 ng-show="mainCtrl.whatever.showPlayerTwoName"  placeholder="Please type yout name">
-                <input type="button" value="Player Two Registers Name" ng-click="mainCtrl.playerTwoNameChange(); 
+                <input type="button" value="P2 Registers" ng-click="mainCtrl.playerTwoNameChange(); 
                 mainCtrl.playerTwoHere=true; mainCtrl.whatsoever.playerTwoHere=true"
                 ng-show="mainCtrl.whatever.showPlayerTwoName" >
 
@@ -50,20 +50,23 @@
         </header>
 
         <main>
-
-
-<!--         <div class="helpGuide">
-            <ol>
-                <li> Input name, and click button to register. </li>
-                <li> Input name, and click button to register. </li>
-                <li> Input name, and click button to register. </li>
-                <li> Input name, and click button to register. </li>
-                <li> Input name, and click button to register. </li>
-                <li> Input name, and click button to register. </li>
-
-            </ol>
-        </div> -->
+            <div class="helpGuide">
+                <ul> 
+                    <p> Player Vs Player version </p>
+                    <li> Player One types name in textbox, click "P1 Registers" button. </li>
+                    <li> Player Two types name in textbox, click "P2 Registers" button. </li>
+                    <li> Start Playing~ Player One Goes First. </li>
+                    <p> Player Vs AI version </p>
+                    <li> Player One types name in textbox, click "P1 Registers" button. </li>
+                    <li> Click "Play Against AI" button and start playing~ </li>
+                    <p> Others </p>
+                    <li> Click "New Round" button for another round. </li>
+                    <li> Click "Reset Game" button to quit current game. </li>
+                    <li> Click "New Player Joins?" button to indicate a challenge </li>
+                </ul>
+            </div>
             <div id="gridContainer">
+
                 <div ng-repeat="grid in mainCtrl.whatever.gridList track by $index">
                     <span class="grids {{grid.id}}" ng-click="mainCtrl.decidePlayerMove($index); mainCtrl.letAiMove()"  
                           ng-class="{x: grid.value === 'x',
@@ -84,7 +87,9 @@
                 <input type="button" class="clearButton" value="New Round" ng-click="mainCtrl.clearButton()"> 
 <!--                 <input type="button" class="clearButton" value="New Game" ng-click="mainCtrl.newGameButton()">  -->
                 <input type="button" class="clearButton" value="Reset Game" ng-click="mainCtrl.resetButton()">
-                <input type="button" class="clearButton" value="Player2 Joins?" ng-click="mainCtrl.playerTwoJoinAlertFunction()">
+                <input type="button" class="clearButton" value="New Player Joins?" ng-click="mainCtrl.playerTwoJoinAlertFunction()">
+
+
             </div>
 
 
