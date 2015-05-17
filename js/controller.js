@@ -83,6 +83,8 @@ angular
 	        	self.whatever.showPlayerTwoName = true;
 	        	self.whatever.showWinner = false;
 	        	self.whatever.playerNameAlert = true;
+	        	self.whatever.player2JoinAlert = false;
+	        	self.whatever.player2JoinAlertMsg = "There is a player 2 waiting!";
 
 				// self.whatever.aiScore = 0;
 
@@ -442,7 +444,7 @@ angular
 					
 					} else if (t == "v") {
 						console.log("ai")
-						self.whatever.winner = "Unbeatable AI AI wins";	
+						self.whatever.winner = "Unbeatable AI wins";	
 						self.whatever.playerTwoScore++;
 						// self.whatever.aiScore++;
 					}
@@ -501,6 +503,7 @@ angular
 	            self.whatever.winner = "winner";
 	        	self.whatever.showWinner = false;
 	        	self.whatever.playerNameAlert = true;
+	        	self.whatever.player2JoinAlert = false;
 	        	self.whatever.playerTurn = self.whatever.playerOne + " 's Turn Now!!";
 	            self.whatever.$save();
 
@@ -525,7 +528,7 @@ angular
         	self.newGameButton();
         	self.whatsoever.playerOneHere = false;
         	self.whatsoever.playerTwoHere = false;
-        	self.whatever.aiHere = false;
+        	self.whatsoever.aiHere = false;
         	self.whatever.$save;
 
         }

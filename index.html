@@ -62,10 +62,15 @@
             <div id="showPlayerTurn">
                 <span class= "playerTurn" ng-bind="mainCtrl.whatever.playerTurn" ng-show="mainCtrl.whatever.playerNameAlert"> </span>
             </div>
+            <div id="showPlayer2AlertMessage">
+                <span class= "player2Msg" ng-bind="mainCtrl.whatever.player2JoinAlertMsg" ng-show="mainCtrl.whatever.player2JoinAlert"> 
+                </span>
+            </div>
             <div class= "buttonWrapper">
                 <input type="button" class="clearButton" value="New Round" ng-click="mainCtrl.clearButton()"> 
                 <input type="button" class="clearButton" value="New Game" ng-click="mainCtrl.newGameButton()"> 
                 <input type="button" class="clearButton" value="Reset Game" ng-click="mainCtrl.resetButton()">
+                <input type="button" class="clearButton" value="Player2 Joins?" ng-click="mainCtrl.whatever.player2JoinAlert=true">
             </div>
         </main>
 
