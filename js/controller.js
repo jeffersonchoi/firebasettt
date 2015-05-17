@@ -24,7 +24,7 @@ angular
 
         self.playerOneNameChange = playerOneNameChange;
         self.playerTwoNameChange = playerTwoNameChange;
-        // self.newGameButton = newGameButton;
+        self.newGameButton = newGameButton;
         self.whatever = whatever();
         self.whatsoever = whatsoever();
         self.resetButton = resetButton;
@@ -512,21 +512,22 @@ angular
 	            self.whatever.$save();
 
 			}
-			//newGameButton allows player one and player two to start a new game;
-			// function newGameButton() {
-	  //       	self.clearButton();
-	  //       	self.whatever.playerOneScore = 0;
-	  //       	self.whatever.playerTwoScore = 0;
-	  //       	self.whatever.counter = 1;
-	  //       	self.whatever.showPlayerOneName = true;
-	  //       	self.whatever.showPlayerTwoName = true;
-	  //     		self.whatever.playerOne = "Player 1";
-	  //       	self.whatever.playerTwo = "Player 2";
-	  //       	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
-	  //       	self.whatever.$save();
-	        // }
+			// newGameButton allows player one and player two to start a new game;
+			function newGameButton() {
+	        	self.clearButton();
+	        	self.whatever.playerOneScore = 0;
+	        	self.whatever.playerTwoScore = 0;
+	        	self.whatever.counter = 1;
+	        	self.whatever.showPlayerOneName = true;
+	        	self.whatever.showPlayerTwoName = true;
+	      		self.whatever.playerOne = "Player 1";
+	        	self.whatever.playerTwo = "Player 2";
+	        	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
+	        	self.whatever.$save();
+	        }
         // resetButton allows 3rd people to restart a new game;
         function resetButton() {
+        	self.newGameButton();
         	self.whatever.counter = 1;
             self.whatever.gridList = [
             	{
