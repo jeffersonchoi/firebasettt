@@ -73,8 +73,8 @@ angular
 	        self.whatever.$loaded(function() {
 
 
-	        	self.whatever.playerOne = "Player 1";
-	        	self.whatever.playerTwo = "Player 2";
+	        	self.whatever.playerOne = "";
+	        	self.whatever.playerTwo = "";
 
 
 	        	self.whatever.playerOneScore = 0;
@@ -564,14 +564,14 @@ angular
         	self.whatever.playerTwoJoinAlert = false;
         	self.whatever.playerTurn = self.whatever.playerOne + " 's Turn Now!!";
 
-        	self.whatever.playerOneScore = 0;
-        	self.whatever.playerTwoScore = 0;
-        	self.whatever.counter = 1;
-        	self.whatever.showPlayerOneName = true;
-        	self.whatever.showPlayerTwoName = true;
-      		self.whatever.playerOne = "Player 1";
-        	self.whatever.playerTwo = "Player 2";
-        	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
+        // 	self.whatever.playerOneScore = 0;
+        // 	self.whatever.playerTwoScore = 0;
+        // 	self.whatever.counter = 1;
+        // 	self.whatever.showPlayerOneName = true;
+        // 	self.whatever.showPlayerTwoName = true;
+      		// self.whatever.playerOne = "Player 1";
+        // 	self.whatever.playerTwo = "Player 2";
+        // 	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
         	self.whatsoever.playerOneHere = false;
         	self.whatsoever.playerTwoHere = false;
         	self.whatsoever.aiHere = false;
@@ -580,8 +580,8 @@ angular
         	self.whatever.counter = 1;
         	self.whatever.showPlayerOneName = true;
         	self.whatever.showPlayerTwoName = true;
-      		self.whatever.playerOne = "Player 1";
-        	self.whatever.playerTwo = "Player 2";
+      		self.whatever.playerOne = "";
+        	self.whatever.playerTwo = "";
         	self.playerOneHere = false;
 			self.playerTwoHere = false;
 			self.aiHere = false;

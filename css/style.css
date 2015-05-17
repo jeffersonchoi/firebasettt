@@ -7,6 +7,7 @@ body {
 	height: 306px;
 	width: 306px;
 	margin: 0 auto;
+	position: relative;
 }
 
 .grids {
@@ -21,15 +22,17 @@ body {
 	float: left;
 	display: inline;
 	background:rgba(255,255,255,0.5);
+	margin-top: 20px;
 	margin-left: 30px;
 	text-align: center;
 	padding-right: 10px;
 	font-family: serif;
-	font-size: 13px;
+	font-size: 12px;
 	font-style: normal;
 	font-variant: small-caps;
 	font-weight: 500;
-	line-height: 20.3999996185303px;
+	line-height: 15.3999996185303px;
+	position: absolute;
 }
 
 
