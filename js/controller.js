@@ -177,7 +177,7 @@ angular
         //adding new stuff
 
         function aiNameChange() {
-        	self.whatever.playerTwo = "Unbeatable AI";
+        	self.whatever.playerTwo = "Jefferson";
         	self.whatever.$save();
         }
 
@@ -448,7 +448,7 @@ angular
 					
 					} else if (t == "v") {
 						console.log("ai")
-						self.whatever.winner = "Unbeatable AI wins";	
+						self.whatever.winner = "Jefferson wins";	
 						self.whatever.playerTwoScore++;
 						// self.whatever.aiScore++;
 					}
