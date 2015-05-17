@@ -29,6 +29,13 @@ angular
         self.whatsoever = whatsoever();
         self.resetButton = resetButton;
 
+
+        self.dangerAlert = dangerAlert;
+		self.aiMove = aiMove;
+		self.ai = "v";
+		self.aiMovePattern = aiMovePattern;
+		self.letAiMove = letAiMove;
+
         /* Firebase Function which is used to create a separate variable,
         in order to track if both player One and Two is Inside the Room. */
         function whatsoever() {
@@ -73,6 +80,9 @@ angular
 	        	self.whatever.showPlayerTwoName = true;
 	        	self.whatever.showWinner = false;
 	        	self.whatever.playerNameAlert = true;
+
+				self.whatever.aiScore = 0;
+
 
 				self.whatever.playerTurn = self.whatever.playerTwo + " Let's get started!!!";
 
@@ -146,10 +156,202 @@ angular
                 console.log(self.whatever.gridList[$index].value)
                 self.whatever.playerTurn = self.whatever.playerOne + " 's Turn Now!";
             }
+   //          else if (
+			//   		self.aiHere == true
+			//         && self.whatever.counter % 2 == 0
+			//     ) {
+   //          	console.log("check if this is running")
+		 //    	self.aiMove();
+		 //    	self.whatever.$save();
+			// } 
             self.getWinner();
             self.whatever.$save();
 
         }
+
+        //adding new stuff
+
+
+        function letAiMove() {
+        	if (
+			  		self.aiHere == true
+			        && self.whatever.counter % 2 == 0
+			    ) {
+            	console.log("check if this is running")
+		    	self.aiMove();
+		    	self.whatever.$save();
+			} 
+            self.getWinner();
+            self.whatever.$save();
+
+        }
+
+
+        function aiMove() {
+        	console.log("aiMove")
+        	self.dangerAlert();
+	        self.whatever.counter++;
+	        self.whatever.playerTurn = self.whatever.playerOne + " 's Turn Now!!";
+	        self.whatever.$save();
+        }
+
+
+
+
+
+
+		//2. detect danger, if no dangerous situations, place according to priority.
+
+	
+		// ([3],[6]) or ([1],[2]) or ([4],[8]) == "x", [0] == "o";
+		// ([0],[2]) or ([4],[7]) == "x", [1] == "o" ;
+		// ([0],[1]) or ([5],[8]) or ([4],[6]) == "x", [2] == "o";
+		// ([0],[6]) or ([4],[5]) == "x", [3] == "o";
+		// ([3],[5]) or ([1],[7]) or ([0],[8]) or ([2],[6])  == "x" , [4] == "o";
+		// ([2],[8]) or ([3],[4]) == "x", [5] == "o";
+		// ([0],[3]) or ([7],[8]) or ([2],[4]) == "x", [6] == "o";
+		// ([1],[4]) or ([6],[8]) == "x", [7] == "o";
+		// ([2],[5]) or ([6],[7]) or ([0],[4]) == "x", [8] == "o";
+
+	
+
+
+        function dangerAlert() {
+        	console.log("dangerAlert");
+		if (
+			 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[0].value == ""|| 
+			 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[2].value == "x") && self.whatever.gridList[0].value == ""|| 
+			 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[0].value == ""
+			) {
+					self.whatever.gridList[0].value = "v"
+			}
+		else if (
+			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[2].value == "x") && self.whatever.gridList[1].value == ""|| 
+			 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[7].value == "x") && self.whatever.gridList[1].value == ""
+			) {
+					self.whatever.gridList[1].value = "v"
+			}
+		else if (
+			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[1].value == "x") && self.whatever.gridList[2].value == ""|| 
+			 (self.whatever.gridList[5].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[2].value == ""|| 
+			 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[2].value == ""
+			) {
+					self.whatever.gridList[2].value = "v";
+					console.log("ai dangeralert grid 2")
+			}
+		else if (
+			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[3].value == ""|| 
+			 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[5].value == "x") && self.whatever.gridList[3].value == ""
+			) {
+					self.whatever.gridList[3].value = "v"
+			}
+		else if (
+			 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[5].value == "x") && self.whatever.gridList[4].value == ""|| 
+			 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[7].value == "x") && self.whatever.gridList[4].value == ""|| 
+			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[4].value == ""||
+			 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[4].value == ""
+			) {
+					self.whatever.gridList[4].value = "v"
+			}
+		else if (
+			 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[5].value == ""|| 
+			 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[5].value == ""
+			) {
+					self.whatever.gridList[5].value = "v"
+			}
+		else if (
+			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[3].value == "x") && self.whatever.gridList[6].value == ""|| 
+			 (self.whatever.gridList[7].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[6].value == ""|| 
+			 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[6].value == ""
+			) {
+					self.whatever.gridList[6].value = "v"
+			}
+		else if (
+			 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[7].value == ""|| 
+			 (self.whatever.gridList[6].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[7].value == ""
+			) {
+					self.whatever.gridList[7].value = "v"
+			}
+	    else if (
+			 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[5].value == "x") && self.whatever.gridList[8].value == ""|| 
+			 (self.whatever.gridList[6].value == "x" && self.whatever.gridList[7].value == "x") && self.whatever.gridList[8].value == ""|| 
+			 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[4].value == "x") && self.whatever.gridList[8].value == ""
+			) {
+					self.whatever.gridList[8].value = "v"
+			}
+		else {
+			aiMovePattern();
+			
+		}
+		self.whatever.$save();
+		}
+
+
+
+		function aiMovePattern() {
+			console.log("aiMovePattern")
+			if (self.whatever.gridList[4].value == "") {
+				self.whatever.gridList[4].value = "v";
+				console.log("ai grid 4")
+			}
+			else if (self.whatever.gridList[0].value == "") {
+				self.whatever.gridList[0].value = "v"
+			}
+			else if (self.whatever.gridList[2].value == "") {
+				self.whatever.gridList[2].value = "v"
+			}
+			else if (self.whatever.gridList[6].value == "") {
+				self.whatever.gridList[6].value = "v"
+			}
+			else if (self.whatever.gridList[8].value == "") {
+				self.whatever.gridList[8].value = "v"
+			}
+			else if (self.whatever.gridList[1].value == "") {
+				self.whatever.gridList[1].value = "v"
+			}
+			else if (self.whatever.gridList[3].value == "") {
+				self.whatever.gridList[3].value = "v"
+			}
+			else if (self.whatever.gridList[5].value == "") {
+				self.whatever.gridList[5].value = "v"
+			}
+			else if (self.whatever.gridList[7].value == "") {
+				self.whatever.gridList[7].value = "v"
+			}
+			else {
+				console.log("aiMovePatternEnding")
+			}
+			self.whatever.$save();
+		}
+
+	/*check empty, if 
+	check if [4] is empty, if empty, click it.
+	if [4] is not empty, check [0],[2],[6],[8] is empty.
+	if [0] is empty, click it, if not, click [2], [6], [8] respectively
+	if [0], [2], [4], [6], [8] is not empty, put it [1],[3],[5],[7].
+		*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /* function to get the winner*/
         function getWinner() {
         	var tokens = [self.p1, self.p2];
@@ -176,6 +378,10 @@ angular
 						self.whatever.playerTwoScore++;
 						self.whatever.winner = self.whatever.playerTwo + " wins";	
 					
+					} else if (t == "v") {
+						console.log("ai")
+						self.whatever.aiScore++;
+						self.whatever.winner = "AI wins";	
 					}
 					
 					self.whatever.showWinner = true;
@@ -255,6 +461,7 @@ angular
         	self.newGameButton();
         	self.whatsoever.playerOneHere = false;
         	self.whatsoever.playerTwoHere = false;
+        	self.whatever.aiHere = false;
         	self.whatever.$save;
 
         }

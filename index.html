@@ -32,14 +32,16 @@
             <div class= "playerNameInput">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerOne" 
                 ng-show="mainCtrl.whatever.showPlayerOneName"  placeholder="Please type yout name">
-                <input type="button" value="Player One Registers Name" ng-click="mainCtrl.playerOneNameChange(); mainCtrl.playerOneHere=true; mainCtrl.whatsoever.playerOneHere=true"
+                <input type="button" value="Player One Registers Name" ng-click="mainCtrl.playerOneNameChange(); 
+                mainCtrl.playerOneHere=true; mainCtrl.whatsoever.playerOneHere=true"
                 ng-show="mainCtrl.whatever.showPlayerOneName">
                 <input type="textbox" ng-model="mainCtrl.whatever.playerTwo" 
                 ng-show="mainCtrl.whatever.showPlayerTwoName"  placeholder="Please type yout name">
-                <input type="button" value="Player Two Registers Name" ng-click="mainCtrl.playerTwoNameChange(); mainCtrl.playerTwoHere=true; mainCtrl.whatsoever.playerTwoHere=true"
+                <input type="button" value="Player Two Registers Name" ng-click="mainCtrl.playerTwoNameChange(); 
+                mainCtrl.playerTwoHere=true; mainCtrl.whatsoever.playerTwoHere=true"
                 ng-show="mainCtrl.whatever.showPlayerTwoName" >
 
-                <input type="button" value="Play Against AI" ng-click="mainCtrl.aiIsHere()">
+                <input type="button" value="Play Against AI" ng-click="mainCtrl.aiHere=true; mainCtrl.whatsoever.aiHere=true">
 
 
 <!--                 <input type="button" value="Confirm" ng-click="mainCtrl.nameChange()" 
@@ -50,15 +52,15 @@
         <main>
             <div id="gridContainer">
                 <div ng-repeat="grid in mainCtrl.whatever.gridList track by $index">
-                    <span class="grids {{grid.id}}" ng-click="mainCtrl.decidePlayerMove($index)"  
+                    <span class="grids {{grid.id}}" ng-click="mainCtrl.decidePlayerMove($index); mainCtrl.letAiMove()"  
                           ng-class="{x: grid.value === 'x',
-                             o: grid.value === 'o'}"> 
+                             o: grid.value === 'o',
+                             v: grid.value === 'v'}"> 
                     </span>
                 </div>
             </div>
             <div id="showPlayerTurn">
                 <span class= "playerTurn" ng-bind="mainCtrl.whatever.playerTurn" ng-show="mainCtrl.whatever.playerNameAlert"> </span>
-<!--                 <span class= "playerNameAlert" ng-bind="mainCtrl.whatever.playerNameAlertMessage">testing </span> -->
             </div>
             <div class= "buttonWrapper">
                 <input type="button" class="clearButton" value="New Round" ng-click="mainCtrl.clearButton()"> 
