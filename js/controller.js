@@ -35,6 +35,8 @@ angular
 		self.ai = "v";
 		self.aiMovePattern = aiMovePattern;
 		self.letAiMove = letAiMove;
+		self.aiNameChange = aiNameChange;
+		self.aiWinLogic = aiWinLogic;
 
         /* Firebase Function which is used to create a separate variable,
         in order to track if both player One and Two is Inside the Room. */
@@ -71,6 +73,7 @@ angular
 
 	        	self.whatever.playerOne = "Player 1";
 	        	self.whatever.playerTwo = "Player 2";
+
 
 	        	self.whatever.playerOneScore = 0;
 	        	self.whatever.playerTwoScore = 0;
@@ -171,6 +174,10 @@ angular
 
         //adding new stuff
 
+        function aiNameChange() {
+        	self.whatever.playerTwo = "Unbeatable AI";
+        	self.whatever.$save();
+        }
 
         function letAiMove() {
         	if (
@@ -181,7 +188,6 @@ angular
 		    	self.aiMove();
 		    	self.whatever.$save();
 			} 
-            self.getWinner();
             self.whatever.$save();
 
         }
@@ -218,7 +224,13 @@ angular
 
         function dangerAlert() {
 	        	console.log("dangerAlert");
-			if (
+	        	if (
+	        	 (self.whatever.gridList[0].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[3].value == ""||
+	        	 (self.whatever.gridList[2].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[3].value == ""
+	        	) {
+	        			self.whatever.gridList[3].value = "v"
+	        	}
+			else if (
 				 (self.whatever.gridList[3].value == "x" && self.whatever.gridList[6].value == "x") && self.whatever.gridList[0].value == ""|| 
 				 (self.whatever.gridList[1].value == "x" && self.whatever.gridList[2].value == "x") && self.whatever.gridList[0].value == ""|| 
 				 (self.whatever.gridList[4].value == "x" && self.whatever.gridList[8].value == "x") && self.whatever.gridList[0].value == ""
@@ -280,17 +292,85 @@ angular
 						self.whatever.gridList[8].value = "v"
 				}
 			else {
-				aiMovePattern();
-				
+				aiWinLogic();
 			}
+
 			self.getWinner();
 			self.whatever.$save();
 		}
 
+		function aiWinLogic() {
+			console.log("aiWinLogic");
+			if (
+        	 (self.whatever.gridList[1].value == "v" && self.whatever.gridList[2].value == "v") && self.whatever.gridList[0].value == ""||
+        	 (self.whatever.gridList[3].value == "v" && self.whatever.gridList[6].value == "v") && self.whatever.gridList[0].value == ""||
+        	 (self.whatever.gridList[4].value == "v" && self.whatever.gridList[8].value == "v") && self.whatever.gridList[0].value == ""
+        	) {
+        			self.whatever.gridList[8].value = "v"
+        	}
+        	else if (
+        	 (self.whatever.gridList[0].value == "v" && self.whatever.gridList[2].value == "v") && self.whatever.gridList[1].value == ""||
+        	 (self.whatever.gridList[4].value == "v" && self.whatever.gridList[7].value == "v") && self.whatever.gridList[1].value == ""
+        	) {
+        			self.whatever.gridList[1].value = "v"
+        	}
+        	else if (
+        	 (self.whatever.gridList[0].value == "v" && self.whatever.gridList[1].value == "v") && self.whatever.gridList[2].value == ""||
+        	 (self.whatever.gridList[4].value == "v" && self.whatever.gridList[6].value == "v") && self.whatever.gridList[2].value == ""||
+        	 (self.whatever.gridList[5].value == "v" && self.whatever.gridList[8].value == "v") && self.whatever.gridList[2].value == ""
+        	) {
+        			self.whatever.gridList[2].value = "v"
+        	}
+        	else if (
+        	 (self.whatever.gridList[0].value == "v" && self.whatever.gridList[6].value == "v") && self.whatever.gridList[3].value == ""||
+        	 (self.whatever.gridList[4].value == "v" && self.whatever.gridList[5].value == "v") && self.whatever.gridList[3].value == ""
+        	) {
+        			self.whatever.gridList[3].value = "v"
+        	}
+        	else if (
+        	 (self.whatever.gridList[0].value == "v" && self.whatever.gridList[8].value == "v") && self.whatever.gridList[4].value == ""||
+        	 (self.whatever.gridList[3].value == "v" && self.whatever.gridList[5].value == "v") && self.whatever.gridList[4].value == ""||
+        	 (self.whatever.gridList[1].value == "v" && self.whatever.gridList[7].value == "v") && self.whatever.gridList[4].value == ""||
+        	 (self.whatever.gridList[2].value == "v" && self.whatever.gridList[6].value == "v") && self.whatever.gridList[4].value == ""
+        	) {
+        			self.whatever.gridList[4].value = "v"
+        	}
+        	else if (
+        	 (self.whatever.gridList[2].value == "v" && self.whatever.gridList[8].value == "v") && self.whatever.gridList[5].value == ""||
+        	 (self.whatever.gridList[3].value == "v" && self.whatever.gridList[4].value == "v") && self.whatever.gridList[5].value == ""
+        	) {
+        			self.whatever.gridList[5].value = "v"
+        	}
+        	else if (
+        	 (self.whatever.gridList[0].value == "v" && self.whatever.gridList[3].value == "v") && self.whatever.gridList[6].value == ""||
+        	 (self.whatever.gridList[2].value == "v" && self.whatever.gridList[4].value == "v") && self.whatever.gridList[6].value == ""||
+        	 (self.whatever.gridList[7].value == "v" && self.whatever.gridList[8].value == "v") && self.whatever.gridList[6].value == ""
+        	) {
+        			self.whatever.gridList[6].value = "v"
+        	}
+        	else if (
+        	 (self.whatever.gridList[1].value == "v" && self.whatever.gridList[4].value == "v") && self.whatever.gridList[7].value == ""||
+        	 (self.whatever.gridList[6].value == "v" && self.whatever.gridList[8].value == "v") && self.whatever.gridList[7].value == ""
+        	) {
+        			self.whatever.gridList[7].value = "v"
+        	}
+        	else if (
+        	 (self.whatever.gridList[0].value == "v" && self.whatever.gridList[4].value == "v") && self.whatever.gridList[8].value == ""||
+        	 (self.whatever.gridList[2].value == "v" && self.whatever.gridList[5].value == "v") && self.whatever.gridList[8].value == ""||
+        	 (self.whatever.gridList[6].value == "v" && self.whatever.gridList[7].value == "v") && self.whatever.gridList[8].value == ""
+        	) {
+        			self.whatever.gridList[8].value = "v"
+        	}
+        	else {
+        		aiMovePattern();
+        	}
+        	self.whatever.$save();
+
+		}
 
 
 		function aiMovePattern() {
-			console.log("aiMovePattern")
+			console.log("aiMovePattern");
 			if (self.whatever.gridList[4].value == "") {
 				self.whatever.gridList[4].value = "v";
 				console.log("ai grid 4")
@@ -322,7 +402,6 @@ angular
 			else {
 				console.log("aiMovePatternEnding")
 			}
-			self.getWinner();
 			self.whatever.$save();
 		}
 
@@ -332,12 +411,6 @@ angular
 	if [0] is empty, click it, if not, click [2], [6], [8] respectively
 	if [0], [2], [4], [6], [8] is not empty, put it [1],[3],[5],[7].
 		*/
-
-
-
-
-
-
 
 
 
@@ -369,7 +442,8 @@ angular
 					
 					} else if (t == "v") {
 						console.log("ai")
-						self.whatever.winner = "AI wins";	
+						self.whatever.winner = "Unbeatable AI AI wins";	
+						self.whatever.playerTwoScore++;
 						// self.whatever.aiScore++;
 					}
 					
@@ -442,6 +516,7 @@ angular
 	      		self.whatever.playerOne = "Player 1";
 	        	self.whatever.playerTwo = "Player 2";
 	        	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
+	        	self.whatever.aiName =  false;
 	        	self.whatever.$save();
 	        }
         //resetButton allows 3rd people to restart a new game;

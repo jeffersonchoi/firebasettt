@@ -107,7 +107,7 @@ h2 {
 	background-image: url("../images/love.png");
 	background-size: 100px 100px;
 }
-.v {
+.v, .v:hover {
 	background-image: url("../images/kaitokid.jpg");
 	background-size: 100px 100px;
 }
