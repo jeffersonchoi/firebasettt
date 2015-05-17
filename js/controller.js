@@ -37,6 +37,8 @@ angular
 		self.letAiMove = letAiMove;
 		self.aiNameChange = aiNameChange;
 		self.aiWinLogic = aiWinLogic;
+		self.playerTwoJoinAlertFunction = playerTwoJoinAlertFunction;
+		// self.aiButtonShow = aiButtonShow;
 
         /* Firebase Function which is used to create a separate variable,
         in order to track if both player One and Two is Inside the Room. */
@@ -82,11 +84,10 @@ angular
 	        	self.whatever.showPlayerOneName = true;
 	        	self.whatever.showPlayerTwoName = true;
 	        	self.whatever.showWinner = false;
+	        	self.whatever.aiBB = true;
 	        	self.whatever.playerNameAlert = true;
-	        	self.whatever.player2JoinAlert = false;
-	        	self.whatever.player2JoinAlertMsg = "There is a player 2 waiting!";
-
-				// self.whatever.aiScore = 0;
+	        	self.whatever.playerTwoJoinAlert = false;
+	        	
 
 
 				self.whatever.playerTurn = self.whatever.playerTwo + " Let's get started!!!";
@@ -182,6 +183,9 @@ angular
         }
 
         function letAiMove() {
+        	if (self.whatsoever.playerTwoHere == true) {
+        		return;
+        	}
         	if (
 			  		self.aiHere == true
 			        && self.whatever.counter % 2 == 0
@@ -456,7 +460,7 @@ angular
 			//deciding tie game
 				else if (self.whatever.counter == 10) {	
 					console.log("tie")
-					self.whatever.winner = "It is a tie!";
+					self.whatever.winner = "It is a tie! Click New Round~";
 					self.whatever.showWinner = true;
 					self.whatever.playerNameAlert = false;
 				}
@@ -503,7 +507,7 @@ angular
 	            self.whatever.winner = "winner";
 	        	self.whatever.showWinner = false;
 	        	self.whatever.playerNameAlert = true;
-	        	self.whatever.player2JoinAlert = false;
+	        	self.whatever.playerTwoJoinAlert = false;
 	        	self.whatever.playerTurn = self.whatever.playerOne + " 's Turn Now!!";
 	            self.whatever.$save();
 
@@ -529,6 +533,7 @@ angular
         	self.whatsoever.playerOneHere = false;
         	self.whatsoever.playerTwoHere = false;
         	self.whatsoever.aiHere = false;
+        	// self.whatever.aiButton = true;
         	self.whatever.$save;
 
         }
@@ -545,8 +550,16 @@ angular
             self.whatever.$save();
         }
 
+        function playerTwoJoinAlertFunction() {
+        	self.whatever.playerTwoJoinAlert = !self.whatever.playerTwoJoinAlert;
+        	self.whatever.playerTwoJoinAlertMsg = "New Player Waiting! Press Reset Game Button!";
+        	self.whatever.$save();
+        }
 
-
+        // function aiButtonShow() {
+        // 	self.whatever.aiButton = false;
+        // 	self.whatever.$save();
+        // }
 
 
 

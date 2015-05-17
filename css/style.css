@@ -49,11 +49,11 @@ h2 {
 	line-height: 15.3999996185303px;
 	color: red;
 }
-#showPlayerTurn, #showPlayer2AlertMessage {
+#showPlayerTurn, #showPlayerTwoAlertMessage {
 	text-align: center;
 	margin: 20px auto;
 }
-.playerTurn, .player2Msg {
+.playerTurn, .playerTwoMsg {
 	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
 	font-size: 30px;
 	font-style: normal;
