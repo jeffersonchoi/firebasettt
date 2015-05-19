@@ -472,58 +472,58 @@ angular
 
 
 
-			function clearButton() {
-				self.whatever.counter = 1;
-	            self.whatever.gridList = [
-	            	{
-	                    id: "box0", 
-	                    value: ""
-	                } , {
-	                    id: "box1", 
-	                    value: ""
-	                } , {
-	                    id: "box2", 
-	                    value: ""
-	                } , {
-	                    id: "box3", 
-	                    value: ""
-	                } , {
-	                    id: "box4", 
-	                    value: ""
-	                } , {
-	                    id: "box5", 
-	                    value: ""
-	                } , {
-	                    id: "box6", 
-	                    value: ""
-	                } , {
-	                    id: "box7", 
-	                    value: ""
-	                } , {
-	                    id: "box8", 
-	                    value: "" 
-	                }
-	                ];
-	            self.whatever.winner = "winner";
-	        	self.whatever.showWinner = false;
-	        	self.whatever.playerNameAlert = true;
-	        	self.whatever.playerTwoJoinAlert = false;
-	        	self.whatever.playerTurn = self.whatever.playerOne + " 's Turn Now!!";
-	            self.whatever.$save();
+		function clearButton() {
+			self.whatever.counter = 1;
+            self.whatever.gridList = [
+            	{
+                    id: "box0", 
+                    value: ""
+                } , {
+                    id: "box1", 
+                    value: ""
+                } , {
+                    id: "box2", 
+                    value: ""
+                } , {
+                    id: "box3", 
+                    value: ""
+                } , {
+                    id: "box4", 
+                    value: ""
+                } , {
+                    id: "box5", 
+                    value: ""
+                } , {
+                    id: "box6", 
+                    value: ""
+                } , {
+                    id: "box7", 
+                    value: ""
+                } , {
+                    id: "box8", 
+                    value: "" 
+                }
+                ];
+            self.whatever.winner = "winner";
+        	self.whatever.showWinner = false;
+        	self.whatever.playerNameAlert = true;
+        	self.whatever.playerTwoJoinAlert = false;
+        	self.whatever.playerTurn = self.whatever.playerOne + " 's Turn Now!!";
+            self.whatever.$save();
 
-			}
-			// newGameButton allows player one and player two to start a new game;
-			function newGameButton() {
-	        	self.clearButton();
-	        	self.whatever.playerOneScore = 0;
-	        	self.whatever.playerTwoScore = 0;
-	        	self.whatever.counter = 1;
-	        	self.whatever.showPlayerOneName = true;
-	        	self.whatever.showPlayerTwoName = true;
-	      		self.whatever.playerOne = "";
-	        	self.whatever.playerTwo = "";
-	        	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
-	        	self.whatever.$save();
+		}
+		// newGameButton allows player one and player two to start a new game;
+		function newGameButton() {
+        	self.clearButton();
+        	self.whatever.playerOneScore = 0;
+        	self.whatever.playerTwoScore = 0;
+        	self.whatever.counter = 1;
+        	self.whatever.showPlayerOneName = true;
+        	self.whatever.showPlayerTwoName = true;
+      		self.whatever.playerOne = "";
+        	self.whatever.playerTwo = "";
+        	self.whatever.playerTurn = "Register Name and Player 1 Goes First!";
+        	self.whatever.$save();
 	        }
         // resetButton allows 3rd people to restart a new game;
         function resetButton() {
