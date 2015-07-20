@@ -67,7 +67,7 @@
                 </ul>
             </div>
             <div id="gridContainer">
-
+            <!-- calculate whos move -->
                 <div ng-repeat="grid in mainCtrl.whatever.gridList track by $index">
                     <span class="grids {{grid.id}}" ng-click="mainCtrl.decidePlayerMove($index); mainCtrl.letAiMove()"  
                           ng-class="{x: grid.value === 'x',
