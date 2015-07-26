@@ -14,44 +14,44 @@
 
         <header>
             <div class= "playerName">
-                <h1 class= "player1" ng-bind="mainCtrl.whatever.playerOne"> </h1> 
-                    VS 
+                <h1 class= "player1" ng-bind="mainCtrl.whatever.playerOne"> </h1>
+                    VS
                 <h1 class= "player2" ng-bind="mainCtrl.whatever.playerTwo"> </h1>
             </div>
 
             <div class= "playerScore">
-                <h2 class= "player1score" ng-bind="mainCtrl.whatever.playerOneScore"> </h2> 
-                    VS 
+                <h2 class= "player1score" ng-bind="mainCtrl.whatever.playerOneScore"> </h2>
+                    VS
                 <h2 class= "player2score" ng-bind="mainCtrl.whatever.playerTwoScore"> </h2>
             </div>
 
             <div class= "playerResult">
                 <h2 class="playerResult" ng-bind="mainCtrl.whatever.winner" ng-show="mainCtrl.whatever.showWinner"> </h2>
             </div>
-
+          <!-- let player to put in their name  -->
             <div class= "playerNameInput">
-                <input type="textbox" ng-model="mainCtrl.whatever.playerOne" 
+                <input type="textbox" ng-model="mainCtrl.whatever.playerOne"
                 ng-show="mainCtrl.whatever.showPlayerOneName"  placeholder="Player One's name">
-                <input type="button" value="P1 Registers" ng-click="mainCtrl.playerOneNameChange(); 
+                <input type="button" value="P1 Registers" ng-click="mainCtrl.playerOneNameChange();
                 mainCtrl.playerOneHere=true; mainCtrl.whatsoever.playerOneHere=true"
                 ng-show="mainCtrl.whatever.showPlayerOneName">
-                <input type="textbox" ng-model="mainCtrl.whatever.playerTwo" 
+                <input type="textbox" ng-model="mainCtrl.whatever.playerTwo"
                 ng-show="mainCtrl.whatever.showPlayerTwoName"  placeholder="Player Two's name">
-                <input type="button" value="P2 Registers" ng-click="mainCtrl.playerTwoNameChange(); 
+                <input type="button" value="P2 Registers" ng-click="mainCtrl.playerTwoNameChange();
                 mainCtrl.playerTwoHere=true; mainCtrl.whatsoever.playerTwoHere=true"
                 ng-show="mainCtrl.whatever.showPlayerTwoName" >
 
                 <input type="button" value="Play Against Jefferson" ng-click="mainCtrl.aiHere=true; mainCtrl.whatsoever.aiHere=true; mainCtrl.playerTwoNameChange(); mainCtrl.whatever.aiName=true; mainCtrl.aiNameChange()" ng-show="mainCtrl.whatever.showPlayerTwoName">
 
 
-<!--                 <input type="button" value="Confirm" ng-click="mainCtrl.nameChange()" 
+<!--                 <input type="button" value="Confirm" ng-click="mainCtrl.nameChange()"
                     ng-show="mainCtrl.whatever.showName"> -->
             </div>
         </header>
         <!-- guidelines -->
         <main>
             <div class="helpGuide">
-                <ul> 
+                <ul>
                     <p> ---------- Click "Reset Game" Button when page loaded --------- </p>
                     <p> Player Vs Player version </p>
                     <li> Player One types name in textbox, click "P1 Registers" button. </li>
@@ -69,26 +69,25 @@
             <div id="gridContainer">
             <!-- calculate whos move  -->
                 <div ng-repeat="grid in mainCtrl.whatever.gridList track by $index">
-                    <span class="grids {{grid.id}}" ng-click="mainCtrl.decidePlayerMove($index); mainCtrl.letAiMove()"  
+                    <span class="grids {{grid.id}}" ng-click="mainCtrl.decidePlayerMove($index); mainCtrl.letAiMove()"
                           ng-class="{x: grid.value === 'x',
                              o: grid.value === 'o',
-                             v: grid.value === 'v'}"> 
+                             v: grid.value === 'v'}">
                     </span>
                 </div>
             </div>
-
             <!-- player turn -->
             <div id="showPlayerTurn">
                 <span class= "playerTurn" ng-bind="mainCtrl.whatever.playerTurn" ng-show="mainCtrl.whatever.playerNameAlert"> </span>
             </div>
             <!-- player alert message -->
             <div id="showPlayerTwoAlertMessage">
-                <span class= "playerTwoMsg" ng-bind="mainCtrl.whatever.playerTwoJoinAlertMsg" ng-show="mainCtrl.whatever.playerTwoJoinAlert"> 
+                <span class= "playerTwoMsg" ng-bind="mainCtrl.whatever.playerTwoJoinAlertMsg" ng-show="mainCtrl.whatever.playerTwoJoinAlert">
                 </span>
             </div>
             <div class= "buttonWrapper">
             <!-- new round button -->
-                <input type="button" class="clearButton" value="New Round" ng-click="mainCtrl.clearButton()"> 
+                <input type="button" class="clearButton" value="New Round" ng-click="mainCtrl.clearButton()">
                 <!-- reset game button -->
                 <input type="button" class="clearButton" value="Reset Game" ng-click="mainCtrl.resetButton()">
                 <!-- new player join alert button -->
